@@ -1,0 +1,80 @@
+Type: Package
+Package: chevreulShiny
+Title: Tools for managing SingleCellExperiment objects as projects
+Version: 0.99.1
+Authors@R: c(
+    person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", 
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0003-2085-695X")),
+    person("Bhavana", "Bhat", , "bhavanabhat29@gmail.com", role = "aut")
+    )
+Description: Tools for managing SingleCellExperiment objects as projects. 
+    Includes functions for analysis and visualization of single-cell data. 
+    Also included is a shiny app for visualization of pre-processed scRNA data.
+    Supported by NIH grants R01CA137124 and R01EY026661 to David Cobrinik.
+License: MIT + file LICENSE
+URL: https://github.com/whtns/chevreulShiny,
+    https://whtns.github.io/chevreulShiny/
+Date: 2024-03-24
+BugReports: https://github.com/cobriniklab/chevreul/issues
+Depends:
+    R (>= 4.4.0),
+    SingleCellExperiment,
+    shiny (>= 1.6.0),
+    shinydashboard,
+    chevreulProcess,
+    chevreulPlot
+Imports:
+    alabaster.base,
+    chevreuldata,
+    clustree,
+    ComplexHeatmap,
+    DataEditR (>= 0.0.9),
+    DBI,
+    dplyr,
+    DT,
+    EnhancedVolcano,
+    ExperimentHub,
+    fs,
+    future,
+    ggplot2,
+    ggplotify,
+    ggpubr,
+    glue,
+    grDevices,
+    methods,
+    plotly,
+    purrr,
+    rappdirs,
+    readr,
+    RSQLite,
+    S4Vectors,
+    scran,
+    shinyFiles,
+    shinyhelper,
+    shinyjs,
+    shinyWidgets,
+    stats,
+    stringr,
+    SummarizedExperiment,
+    tibble,
+    tidyr,
+    utils,
+    waiter,
+    wiggleplotr (>= 1.13.1)
+Suggests:
+    BiocStyle,
+    knitr,
+    RefManageR,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder:
+    knitr
+Encoding: UTF-8
+LazyData: false
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+biocViews:
+    Coverage, RNASeq, Sequencing, Visualization, GeneExpression, 
+    Transcription, SingleCell, Transcriptomics, Normalization, Preprocessing, 
+    QualityControl, DimensionReduction, DataImport
+Config/testthat/edition: 3
