@@ -15,7 +15,7 @@ License: MIT + file LICENSE
 URL: https://github.com/cobriniklab/chevreulShiny,
     https://cobriniklab.github.io/chevreulShiny/
 Date: 2024-03-24
-BugReports: https://github.com/cobriniklab/chevreul/issues
+BugReports: https://github.com/cobriniklab/chevreulShiny/issues
 Depends:
     R (>= 4.4.0),
     SingleCellExperiment,

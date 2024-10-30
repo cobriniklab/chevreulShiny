@@ -11,8 +11,8 @@ Tools for managing SingleCellExperiment objects as projects. Includes functions 
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/whtns/chevreulShiny}
-  \item \url{https://whtns.github.io/chevreulShiny/}
+  \item \url{https://github.com/cobriniklab/chevreulShiny}
+  \item \url{https://cobriniklab.github.io/chevreulShiny/}
   \item Report bugs at \url{https://github.com/cobriniklab/chevreul/issues}
 }
 
