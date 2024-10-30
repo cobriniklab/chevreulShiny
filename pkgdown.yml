@@ -1,0 +1,10 @@
+pandoc: 3.1.11
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  chevreulShiny: chevreulShiny.html
+  shiny_app: shiny_app.html
+last_built: 2024-10-30T15:47Z
+urls:
+  reference: https://whtns.github.io/chevreulShiny/reference
+  article: https://whtns.github.io/chevreulShiny/articles
