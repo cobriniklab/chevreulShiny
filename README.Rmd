@@ -50,7 +50,7 @@ create_project_db()
 You can also customize the location of the app using these steps:
 
 ```{r, eval=FALSE}
-devtools::install_github("cobriniklab/chevreul")
+devtools::install_github("cobriniklab/chevreulShiny")
 library(chevreulShiny)
 create_project_db(destdir = "/your/path/to/app")
 ```
