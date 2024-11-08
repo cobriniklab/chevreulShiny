@@ -13,7 +13,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/cobriniklab/chevreulShiny}
   \item \url{https://cobriniklab.github.io/chevreulShiny/}
-  \item Report bugs at \url{https://github.com/cobriniklab/chevreul/issues}
+  \item Report bugs at \url{https://github.com/cobriniklab/chevreulShiny/issues}
 }
 
 }
