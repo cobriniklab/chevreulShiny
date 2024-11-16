@@ -196,12 +196,8 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
     server <- function(input, output, session) {
         w <- Waiter$new()
 
-        observe_helpers(help_dir =
-                          system.file(
-                              "helpers", 
-                              package = "chevreul",
-                              lib.loc =
-                                  "/dataVolume/storage/rpkgs/devel_install/"))
+        observe_helpers(
+            help_dir = system.file("helpers", package = "chevreulShiny"))
         options(warn = -1)
 
         object <- reactiveVal(NULL)

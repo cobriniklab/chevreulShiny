@@ -184,9 +184,7 @@ dockerChevreulApp <- function(
         w <- Waiter$new()
 
         observe_helpers(
-            help_dir = system.file(
-                "helpers", package = "chevreul", 
-                lib.loc = "/dataVolume/storage/rpkgs/devel_install/"))
+            help_dir = system.file("helpers", package = "chevreulShiny"))
         options(warn = -1)
 
         object <- reactiveVal(NULL)

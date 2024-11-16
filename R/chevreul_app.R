@@ -29,9 +29,9 @@ chevreulApp <-
            futureMb = 13000,
            db_name = "single-cell-projects.db") {
 
-    db_path <- file.path(user_cache_dir(appname="chevreul"), db_name)
+    db_path <- file.path(user_cache_dir(appname="chevreulShiny"), db_name)
 
-    message(packageVersion("chevreul"))
+    message(packageVersion("chevreulShiny"))
     plan(strategy = "multicore", workers = 6)
     future_size <- futureMb * 1024^2
     options(future.globals.maxSize = future_size)
@@ -213,7 +213,7 @@ chevreulApp <-
             ), tabItem(
                 tabName = "techInfo",
                 h2("Technical Information"),
-                h3(paste0("chevreul version: ", packageVersion("chevreul"))),
+                h3(paste0("chevreul version: ", packageVersion("chevreulShiny"))),
                 techInfoui("techInfo")
             )
         )
