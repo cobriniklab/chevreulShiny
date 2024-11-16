@@ -342,7 +342,7 @@ dockerChevreulApp <- function(
                 {
                     html("subsetMessages", "")
                     message("Beginning")
-                    subset_sce <- subset_by_meta(
+                    subset_sce <- subset_by_colData(
                         input$uploadCsv$datapath,
                         object()
                     )
