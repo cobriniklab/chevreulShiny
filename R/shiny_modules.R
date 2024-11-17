@@ -1336,8 +1336,7 @@ allTranscripts <- function(id, object, featureType, organism_type) {
             req(object())
             req(input$embeddingGene)
             if (query_experiment(object(), "transcript")) {
-                get_transcripts_from_sce(object(), input$embeddingGene,
-                    organism = organism_type()
+                get_transcripts_from_sce(object(), input$embeddingGene
                 )
             }
         })
