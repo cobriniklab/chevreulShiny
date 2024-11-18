@@ -2,8 +2,8 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @importFrom alabaster.base saveObject
 #' @importFrom alabaster.base readObject
+#' @importFrom alabaster.base saveObject
 #' @importFrom chevreuldata human_gene_transcript_sce
 #' @importFrom clustree clustree
 #' @importFrom ComplexHeatmap draw
@@ -22,6 +22,7 @@
 #' @importFrom DBI dbDisconnect
 #' @importFrom DBI dbReadTable
 #' @importFrom DBI dbWriteTable
+#' @importFrom dplyr anti_join
 #' @importFrom dplyr bind_cols
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr case_when
@@ -32,6 +33,7 @@
 #' @importFrom dplyr mutate
 #' @importFrom dplyr pull
 #' @importFrom dplyr select
+#' @importFrom dplyr slice
 #' @importFrom DT datatable
 #' @importFrom DT DTOutput
 #' @importFrom DT formatStyle
@@ -43,13 +45,14 @@
 #' @importFrom fs path_file
 #' @importFrom future plan
 #' @importFrom ggplotify as.ggplot
-#' @importFrom ggpubr theme_pubr
 #' @importFrom glue glue
 #' @importFrom grDevices dev.off 
 #' @importFrom grDevices pdf
 #' @importFrom methods is
+#' @importFrom plotly config
 #' @importFrom plotly event_data
 #' @importFrom plotly ggplotly
+#' @importFrom plotly layout
 #' @importFrom plotly partial_bundle
 #' @importFrom plotly plotlyOutput
 #' @importFrom plotly renderPlotly
@@ -59,10 +62,8 @@
 #' @importFrom purrr map
 #' @importFrom purrr map_chr
 #' @importFrom rappdirs user_cache_dir
-#' @importFrom readr read_csv
 #' @importFrom RSQLite SQLite
 #' @importFrom S4Vectors metadata
-#' @importFrom scran findMarkers
 #' @importFrom shiny incProgress
 #' @importFrom shiny selectInput
 #' @importFrom shiny withProgress
@@ -91,6 +92,7 @@
 #' @importFrom shinyjs useShinyjs
 #' @importFrom shinyWidgets prettyRadioButtons
 #' @importFrom stats runif
+#' @importFrom stringr str_count
 #' @importFrom stringr str_detect
 #' @importFrom stringr str_remove
 #' @importFrom stringr str_replace
@@ -101,9 +103,12 @@
 #' @importFrom tibble deframe
 #' @importFrom tibble enframe
 #' @importFrom tibble rownames_to_column
+#' @importFrom tibble tibble
 #' @importFrom tidyr drop_na
 #' @importFrom tidyr pivot_wider
 #' @importFrom tidyr unite
+#' @importFrom tidyselect any_of
+#' @importFrom tidyselect everything
 #' @importFrom utils capture.output
 #' @importFrom utils data
 #' @importFrom utils head
@@ -114,14 +119,10 @@
 #' @importFrom waiter use_waiter
 #' @importFrom waiter Waiter
 ## usethis namespace: end
-#' @import ggplot2
-#' @import SingleCellExperiment
-#' @import SummarizedExperiment
-#' @import shiny
-#' @import dplyr
-#' @import stringr
-#' @import tidyr
 #' @import chevreulProcess
 #' @import chevreulPlot
+#' @import ggplot2
+#' @import SingleCellExperiment
+#' @import shiny
 NULL
 

@@ -145,7 +145,7 @@ reformatMetadataDR <- function(
                 return(NULL)
             }
 
-            object(set_colData(object(), read_csv(inFile$datapath)))
+            object(set_colData(object(), read.csv(inFile$datapath)))
         } else if (input$updateMethod == "spreadsheet") {
             object(propagate_spreadsheet_changes(values$data_active, object()))
         }

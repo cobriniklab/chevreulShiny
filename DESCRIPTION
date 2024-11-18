@@ -1,7 +1,7 @@
 Type: Package
 Package: chevreulShiny
 Title: Tools for managing SingleCellExperiment objects as projects
-Version: 0.99.8
+Version: 0.99.9
 Authors@R: c(
     person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0003-2085-695X")),
@@ -33,31 +33,27 @@ Imports:
     dplyr,
     DT,
     EnhancedVolcano,
-    ExperimentHub,
     fs,
     future,
     ggplot2,
     ggplotify,
-    ggpubr,
     glue,
     grDevices,
     methods,
     plotly,
     purrr,
     rappdirs,
-    readr,
     RSQLite,
     S4Vectors,
-    scran,
     shinyFiles,
     shinyhelper,
     shinyjs,
     shinyWidgets,
     stats,
     stringr,
-    SummarizedExperiment,
     tibble,
     tidyr,
+    tidyselect,
     utils,
     waiter
 Suggests:
