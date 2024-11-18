@@ -114,7 +114,10 @@ plotViolin <- function(id, object, featureType, organism_type) {
                 paste("violin", ".pdf", sep = "")
             },
             content = function(file) {
-                ggsave(file, vln_plot(),
+                ggsave(file, vln_plot() + theme_pubr(
+                    base_size = 20,
+                    x.text.angle = 45
+                ),
                 width = 8, height = 6
                 )
             }
@@ -133,7 +136,7 @@ plotViolin <- function(id, object, featureType, organism_type) {
                     traces = c(seq_len(exclude_trace_number))
                 ) |>
                 plotly_settings(width = 1200) |>
-                toWebGL() |>
+                # toWebGL() |>
                 identity()
         })
     })
