@@ -1376,7 +1376,7 @@ allTranscripts <- function(id, object, featureType, organism_type) {
             req(transcripts())
             req(input$embedding)
             pList <- plot_all_transcripts(object(), transcripts(), input$embedding,
-                from_gene = FALSE, combine = FALSE, point_size = 1
+                from_gene = FALSE, point_size = 1
             )
         })
 
