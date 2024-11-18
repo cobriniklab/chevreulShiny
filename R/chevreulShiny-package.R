@@ -62,6 +62,7 @@
 #' @importFrom purrr map
 #' @importFrom purrr map_chr
 #' @importFrom rappdirs user_cache_dir
+#' @importFrom readr read_csv
 #' @importFrom RSQLite SQLite
 #' @importFrom S4Vectors metadata
 #' @importFrom shiny incProgress

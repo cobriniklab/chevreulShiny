@@ -45,8 +45,6 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                 tabName = "violinPlots", icon = icon("sort")
                 ), menuItem("Differential Expression",
                 tabName = "diffex", icon = icon("magnet")
-                # ), menuItem("Pathway Enrichment Analysis",
-                #   tabName = "pathwayEnrichment", icon = icon("sitemap")
             ), menuItem("Find Markers",
                 tabName = "findMarkers", icon = icon("bullhorn")
             ), menuItem("Heatmap",
@@ -157,13 +155,6 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                     default_helper(type = "markdown", content = "diffex"),
                 plotDimRedui("diffex"),
                 diffexui("diffex")
-            ),
-            tabItem(
-                tabName = "pathwayEnrichment",
-                h2("Pathway Enrichment"),
-                fluidRow(
-                    pathwayEnrichmentui("pathwayEnrichment")
-                )
             ),
             tabItem(
                 tabName = "regressFeatures",
@@ -287,8 +278,6 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
 
         chevreulMarkers("findmarkers", object, plot_types, 
                    featureType)
-
-        pathwayEnrichment("pathwayEnrichment", object)
 
         # plot all transcripts
         observe({

@@ -61,7 +61,7 @@ reformatMetadataDR <- function(
         viewer_height = 800,
         viewer_width = 2000,
         theme = "yeti",
-        read_fun = "read.csv",
+        read_fun = "read_csv",
         read_args = NULL,
         write_fun = "write.csv",
         write_args = NULL,
@@ -145,7 +145,7 @@ reformatMetadataDR <- function(
                 return(NULL)
             }
 
-            object(set_colData(object(), read.csv(inFile$datapath)))
+            object(set_colData(object(), read_csv(inFile$datapath)))
         } else if (input$updateMethod == "spreadsheet") {
             object(propagate_spreadsheet_changes(values$data_active, object()))
         }

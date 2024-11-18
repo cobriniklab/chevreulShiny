@@ -1470,27 +1470,8 @@ techInfo <- function(id, object) {
                     "</ul>",
                     "<strong><u>Marker genes</u></strong>",
                     "<ul>",
-                    # "<li><b>Only positive:</b> ",
-                    # sce_metadata()$marker_genes$parameters$only_positive,
-                    # "<li><b>Fraction of cells in group of interest that must express marker gene:</b> ",
-                    # sce_metadata()$marker_genes$parameters$minimum_percentage,
-                    # "<li><b>LogFC threshold:</b> ",
-                    # sce_metadata()$marker_genes$parameters$logFC_threshold,
                     "<li><b>p-value threshold:</b> ",
                     "0.05",
-                    # sce_metadata()$marker_genes$parameters$p_value_threshold,
-                    "</ul>",
-                    "<strong><u>Pathway enrichment</u></strong>",
-                    "<ul>",
-                    # "<li><b>Enrichr:</b>",
-                    # "<ul>",
-                    # "<li><b>Databases:</b> ",
-                    # paste0(sce_metadata()$enriched_pathways$enrichr$parameters$databases, collapse = ", "),
-                    # "<li><b>Adj. p-value cut-off:</b> ",
-                    # sce_metadata()$enriched_pathways$enrichr$parameters$adj_p_cutoff,
-                    # "<li><b>Max. terms:</b> ",
-                    # sce_metadata()$enriched_pathways$enrichr$parameters$max_terms,
-                    # "</ul>",
                     "</ul>"
                 )
                 paste0(
@@ -1721,7 +1702,7 @@ reformatMetadataDR <- function(id, object,
                                viewer_height = 800,
                                viewer_width = 2000,
                                theme = "yeti",
-                               read_fun = "read.csv",
+                               read_fun = "read_csv",
                                read_args = NULL,
                                write_fun = "write.csv",
                                write_args = NULL,
@@ -1801,7 +1782,7 @@ reformatMetadataDR <- function(id, object,
                     return(NULL)
                 }
 
-                object(set_colData(object(), read.csv(inFile$datapath)))
+                object(set_colData(object(), read_csv(inFile$datapath)))
             } else if (input$updateMethod == "spreadsheet") {
                 reformatted_sce <-
                     propagate_spreadsheet_changes(values$data_active, object())

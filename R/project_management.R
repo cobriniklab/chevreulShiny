@@ -44,7 +44,7 @@ create_proj_matrix <- function(proj_list) {
 #' @return a SingleCellExperiment object
 #'
 subset_by_colData <- function(colData_path, object) {
-    upload_colData <- read.csv(colData_path, col_names = "sample_id") |>
+    upload_colData <- read_csv(colData_path, col_names = "sample_id") |>
         filter(!is.na(sample_id) & !sample_id == "sample_id") |>
         mutate(name = sample_id) |>
         column_to_rownames("sample_id") |>

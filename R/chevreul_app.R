@@ -75,8 +75,6 @@ chevreulApp <-
                 tabName = "coveragePlots", icon = icon("mountain")
             ), menuItem("Differential Expression",
                 tabName = "diffex", icon = icon("magnet")
-                # ), menuItem("Pathway Enrichment Analysis",
-                #   tabName = "pathwayEnrichment", icon = icon("sitemap")
             ), menuItem("Find Markers",
                 tabName = "findMarkers", icon = icon("bullhorn")
             ), menuItem("Subset SingleCellExperiment Input",
@@ -189,13 +187,6 @@ chevreulApp <-
                 plotDimRedui("diffex"),
                 diffexui("diffex")
             ),
-            # tabItem(
-            #   tabName = "pathwayEnrichment",
-            #   h2("Pathway Enrichment"),
-            #   fluidRow(
-            #     pathwayEnrichmentui("pathwayEnrichment")
-            #   )
-            # ),
             tabItem(
                 tabName = "regressFeatures",
                 fluidRow(
@@ -226,17 +217,6 @@ chevreulApp <-
         )
     }
     server <- function(input, output, session) {
-        # runcodeServer()
-        # observe({
-        #   list_of_inputs <- reactiveValuesToList(input)
-        #   list_of_inputs <<- reactiveValuesToList(input)
-        #   print(list_of_inputs)
-        #
-        #   retained_inputs <- c("setProject")
-        #
-        #   list_of_inputs[!list_of_inputs %in% retained_inputs]
-        # })
-        # setBookmarkExclude(names(list_of_inputs))
 
         onBookmark(function(state) {
             state$values$uploadSCEPath <- uploadSCEPath()
@@ -471,7 +451,6 @@ chevreulApp <-
             object
         )
 
-        pathwayEnrichment( "pathwayEnrichment", object, featureType)
 
         cell_subset <- tableSelected( "subset",
             object
