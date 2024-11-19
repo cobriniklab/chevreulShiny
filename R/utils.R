@@ -60,9 +60,9 @@ create_project_db <- function(cache_location = "~/.cache/chevreul",
                            project_path = character(), 
                            project_slug = character(), 
                            project_type = character(), )
-    message(glue(
-        "building table of chevreul projects at {path(cache_location, 
-        sqlite_db)}"))
+    message(paste0(
+        "building table of chevreul projects at ", path(cache_location, 
+        sqlite_db)))
     tryCatch({
         dbWriteTable(con, "projects_tbl", projects_tbl)
     }, warning = function(w) {
@@ -273,7 +273,7 @@ save_sce <- function(object, prefix = "unfiltered", proj_dir = getwd()) {
 
     sce_path <- path(sce_dir, paste0(prefix, "_sce.rds"))
 
-    message(glue("saving to {sce_path}"))
+    message(paste0("saving to ", sce_path))
     saveRDS(object, sce_path)
 
     return(object)

@@ -5,5 +5,5 @@
 }
 
 .onAttach <- function(libname, pkgname) {
-    suppressPackageStartupMessages(library(clustree))
+    # suppressPackageStartupMessages(library(clustree))
 }

@@ -114,10 +114,7 @@ plotViolin <- function(id, object, featureType, organism_type) {
                 paste("violin", ".pdf", sep = "")
             },
             content = function(file) {
-                ggsave(file, vln_plot() + theme_pubr(
-                    base_size = 20,
-                    x.text.angle = 45
-                ),
+                ggsave(file, vln_plot(),
                 width = 8, height = 6
                 )
             }
@@ -975,20 +972,6 @@ diffex <- function(id, object, featureType, selected_cells,
                 raster = TRUE
             )
         })
-
-        # Volcano <- reactive({
-        #     de_results()[[input$diffex_method]] |>
-        #         distinct(symbol, .keep_all = TRUE) |>
-        #         column_to_rownames("symbol") |>
-        #         (\(data) EnhancedVolcano(
-        #             data,
-        #             lab = rownames(data),
-        #             x = "avg_log2FC",
-        #             y = "p_val_adj",
-        #             pCutoff = 1 / (10^as.numeric(input$pValCutoff)),
-        #             FCcutoff = as.numeric(input$FCcutoff)
-        #         ))()
-        # })
 
         output$volcano <- renderPlot({
             print(Volcano())
