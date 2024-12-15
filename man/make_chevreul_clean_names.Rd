@@ -15,9 +15,3 @@ a clean vector of object names
 \description{
 Cleans names of objects provided in a vector form
 }
-\examples{
-
-data(small_example_dataset)
-make_chevreul_clean_names(colnames(
-get_colData(small_example_dataset)))
-}

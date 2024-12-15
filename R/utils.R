@@ -284,11 +284,6 @@ save_sce <- function(object, prefix = "unfiltered", proj_dir = getwd()) {
 #' @param object a SingleCellExperiment object
 #'
 #' @return plot_types a list of category_vars or continuous_vars
-#' @export
-#' @examples
-#' 
-#' data(small_example_dataset)
-#' list_plot_types(small_example_dataset)
 list_plot_types <- function(object) {
     meta_types <- tibble(
         vars = colnames(colData(object)),
@@ -338,12 +333,6 @@ list_plot_types <- function(object) {
 #' @param myvec A vector of object names
 #'
 #' @return a clean vector of object names
-#' @export
-#' @examples
-#' 
-#' data(small_example_dataset)
-#' make_chevreul_clean_names(colnames(
-#' get_colData(small_example_dataset)))
 make_chevreul_clean_names <- function(myvec) {
     names(myvec) <- 
         myvec |> 

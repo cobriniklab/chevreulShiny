@@ -15,8 +15,3 @@ plot_types a list of category_vars or continuous_vars
 \description{
 Collate list of variables to be plotted
 }
-\examples{
-
-data(small_example_dataset)
-list_plot_types(small_example_dataset)
-}

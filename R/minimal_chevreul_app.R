@@ -24,7 +24,7 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
 
   db_path <- file.path(user_cache_dir(appname="chevreul"), db_name)
 
-    future::plan(strategy = "multicore", workers = 6)
+    plan(strategy = "multicore", workers = 6)
     future_size <- futureMb * 1024^2
     options(future.globals.maxSize = future_size)
     options(shiny.maxRequestSize = 40 * 1024^2)
