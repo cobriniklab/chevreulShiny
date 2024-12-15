@@ -357,7 +357,7 @@ integrateProj <- function(id, proj_matrices, object, proj_dir, con) {
         )
 
         selectedRows <- eventReactive(input$integrateAction, {
-            ids <- input$myDatatable_rows_selected
+            input$myDatatable_rows_selected
         })
 
         selectedProjects <- reactive({
@@ -708,9 +708,8 @@ tableSelected <- function(id, object) {
             req(object())
             d <- event_data("plotly_selected")
             if (is.null(d)) {
-                msg <-
-                    "Click and drag events (i.e. select/lasso) appear here
-            (double-click to clear)"
+                "Click and drag events (i.e. select/lasso) 
+                appear here (double-click to clear)"
                 return(d)
             } else {
                 # selected_cells <- colnames(object())[as.numeric(d$key)]
