@@ -346,9 +346,7 @@ integrateProj <- function(id, proj_matrices, object, proj_dir, con) {
         })
 
         clean_proj_matrix <- reactive({
-            clean_proj_matrix <- proj_matrix() |>
-                select(-project_path) |>
-                identity()
+            subset(proj_matrix(), select = -c(project_path))
         })
 
         output$myDatatable <- renderDT(clean_proj_matrix(),
