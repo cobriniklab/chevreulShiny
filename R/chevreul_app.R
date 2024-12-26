@@ -29,9 +29,9 @@ chevreulApp <-
            futureMb = 13000,
            db_name = "single-cell-projects.db") {
 
-    db_path <- file.path(user_cache_dir(appname="chevreul"), db_name)
+    db_path <- file.path(user_cache_dir(appname="chevreulShiny"), db_name)
 
-    message(packageVersion("chevreul"))
+    message(packageVersion("chevreulShiny"))
     plan(strategy = "multicore", workers = 6)
     future_size <- futureMb * 1024^2
     options(future.globals.maxSize = future_size)
@@ -75,8 +75,6 @@ chevreulApp <-
                 tabName = "coveragePlots", icon = icon("mountain")
             ), menuItem("Differential Expression",
                 tabName = "diffex", icon = icon("magnet")
-                # ), menuItem("Pathway Enrichment Analysis",
-                #   tabName = "pathwayEnrichment", icon = icon("sitemap")
             ), menuItem("Find Markers",
                 tabName = "findMarkers", icon = icon("bullhorn")
             ), menuItem("Subset SingleCellExperiment Input",
@@ -189,13 +187,6 @@ chevreulApp <-
                 plotDimRedui("diffex"),
                 diffexui("diffex")
             ),
-            # tabItem(
-            #   tabName = "pathwayEnrichment",
-            #   h2("Pathway Enrichment"),
-            #   fluidRow(
-            #     pathwayEnrichmentui("pathwayEnrichment")
-            #   )
-            # ),
             tabItem(
                 tabName = "regressFeatures",
                 fluidRow(
@@ -213,7 +204,7 @@ chevreulApp <-
             ), tabItem(
                 tabName = "techInfo",
                 h2("Technical Information"),
-                h3(paste0("chevreul version: ", packageVersion("chevreul"))),
+                h3(paste0("chevreul version: ", packageVersion("chevreulShiny"))),
                 techInfoui("techInfo")
             )
         )
@@ -226,17 +217,6 @@ chevreulApp <-
         )
     }
     server <- function(input, output, session) {
-        # runcodeServer()
-        # observe({
-        #   list_of_inputs <- reactiveValuesToList(input)
-        #   list_of_inputs <<- reactiveValuesToList(input)
-        #   print(list_of_inputs)
-        #
-        #   retained_inputs <- c("setProject")
-        #
-        #   list_of_inputs[!list_of_inputs %in% retained_inputs]
-        # })
-        # setBookmarkExclude(names(list_of_inputs))
 
         onBookmark(function(state) {
             state$values$uploadSCEPath <- uploadSCEPath()
@@ -471,7 +451,6 @@ chevreulApp <-
             object
         )
 
-        pathwayEnrichment( "pathwayEnrichment", object, featureType)
 
         cell_subset <- tableSelected( "subset",
             object
@@ -518,7 +497,7 @@ chevreulApp <-
                 {
                     html("subsetMessages", "")
                     message("Beginning")
-                    subset_sce <- subset_by_meta(
+                    subset_sce <- subset_by_colData(
                         input$uploadCsv$datapath,
                         object()
                     )

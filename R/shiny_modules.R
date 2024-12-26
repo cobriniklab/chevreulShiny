@@ -114,10 +114,7 @@ plotViolin <- function(id, object, featureType, organism_type) {
                 paste("violin", ".pdf", sep = "")
             },
             content = function(file) {
-                ggsave(file, vln_plot() + theme_pubr(
-                    base_size = 20,
-                    x.text.angle = 45
-                ),
+                ggsave(file, vln_plot(),
                 width = 8, height = 6
                 )
             }
@@ -136,7 +133,7 @@ plotViolin <- function(id, object, featureType, organism_type) {
                     traces = c(seq_len(exclude_trace_number))
                 ) |>
                 plotly_settings(width = 1200) |>
-                toWebGL() |>
+                # toWebGL() |>
                 identity()
         })
     })
@@ -349,9 +346,7 @@ integrateProj <- function(id, proj_matrices, object, proj_dir, con) {
         })
 
         clean_proj_matrix <- reactive({
-            clean_proj_matrix <- proj_matrix() |>
-                select(-project_path) |>
-                identity()
+            subset(proj_matrix(), select = -c(project_path))
         })
 
         output$myDatatable <- renderDT(clean_proj_matrix(),
@@ -360,7 +355,7 @@ integrateProj <- function(id, proj_matrices, object, proj_dir, con) {
         )
 
         selectedRows <- eventReactive(input$integrateAction, {
-            ids <- input$myDatatable_rows_selected
+            input$myDatatable_rows_selected
         })
 
         selectedProjects <- reactive({
@@ -711,9 +706,8 @@ tableSelected <- function(id, object) {
             req(object())
             d <- event_data("plotly_selected")
             if (is.null(d)) {
-                msg <-
-                    "Click and drag events (i.e. select/lasso) appear here
-            (double-click to clear)"
+                "Click and drag events (i.e. select/lasso) 
+                appear here (double-click to clear)"
                 return(d)
             } else {
                 # selected_cells <- colnames(object())[as.numeric(d$key)]
@@ -976,20 +970,6 @@ diffex <- function(id, object, featureType, selected_cells,
             )
         })
 
-        # Volcano <- reactive({
-        #     de_results()[[input$diffex_method]] |>
-        #         distinct(symbol, .keep_all = TRUE) |>
-        #         column_to_rownames("symbol") |>
-        #         (\(data) EnhancedVolcano(
-        #             data,
-        #             lab = rownames(data),
-        #             x = "avg_log2FC",
-        #             y = "p_val_adj",
-        #             pCutoff = 1 / (10^as.numeric(input$pValCutoff)),
-        #             FCcutoff = as.numeric(input$FCcutoff)
-        #         ))()
-        # })
-
         output$volcano <- renderPlot({
             print(Volcano())
         })
@@ -999,8 +979,7 @@ diffex <- function(id, object, featureType, selected_cells,
                 paste("DE_Volcano_plot", ".pdf", sep = "")
             },
             content = function(file) {
-                ggsave(file, Volcano() +
-                    theme_pubr(base_size = 20, x.text.angle = 45),
+                ggsave(file, Volcano(),
                 width = 8, height = 6
                 )
             }
@@ -1336,8 +1315,7 @@ allTranscripts <- function(id, object, featureType, organism_type) {
             req(object())
             req(input$embeddingGene)
             if (query_experiment(object(), "transcript")) {
-                get_transcripts_from_sce(object(), input$embeddingGene,
-                    organism = organism_type()
+                get_transcripts_from_sce(object(), input$embeddingGene
                 )
             }
         })
@@ -1381,7 +1359,7 @@ allTranscripts <- function(id, object, featureType, organism_type) {
             req(transcripts())
             req(input$embedding)
             pList <- plot_all_transcripts(object(), transcripts(), input$embedding,
-                from_gene = FALSE, combine = FALSE, point_size = 1
+                from_gene = FALSE, point_size = 1
             )
         })
 
@@ -1403,176 +1381,6 @@ allTranscripts <- function(id, object, featureType, organism_type) {
                 dev.off()
             }
         )
-    })
-}
-
-#' Title
-#'
-#' @noRd
-pathwayEnrichmentui <- function(id) {
-    ns <- NS(id)
-    chevreulBox(
-        title = "Enriched pathways by cluster",
-        tagList(
-            actionButton(
-                ns("calcPathwayEnrichment"),
-                "Calculate Pathway Enrichment"
-            ),
-            uiOutput(ns("enriched_pathways_by_cluster_select_source_UI")),
-            uiOutput(ns("enriched_pathways_by_cluster_UI"))
-        ),
-        width = 12
-    )
-}
-
-#' pathway enrichment
-#'
-#' @noRd
-pathwayEnrichment <- function(id, object, featureType) {
-    moduleServer(id, function(input, output, session) {
-        enriched_pathways <- eventReactive(input$calcPathwayEnrichment, {
-            req(object())
-            if (featureType() == "gene") {
-                enriched_sce <- tryCatch(getEnrichedPathways(object()),
-                    error = function(e) e
-                )
-                enrichr_available <- !any(is(enriched_sce, "error"))
-                if (enrichr_available) {
-                    object <- enriched_sce
-                }
-            }
-
-            metadata(object())$enriched_pathways
-        })
-
-        # UI element: choose source for pathway enrichement results (currently
-        # Enrichr or GSVA)
-        output$enriched_pathways_by_cluster_select_source_UI <- renderUI({
-            req(object())
-            if (is.null(enriched_pathways())) {
-                textOutput("enriched_pathways_by_cluster_table_missing")
-            } else {
-                selectInput(
-                    "enriched_pathways_by_cluster_select_source",
-                    label = NULL,
-                    choices = names(enriched_pathways())
-                )
-            }
-        })
-
-        # UI element: display results or alternative text
-        output$enriched_pathways_by_cluster_UI <- renderUI({
-            req(object())
-            req(input$enriched_pathways_by_cluster_select_source)
-            if (input$enriched_pathways_by_cluster_select_source == "enrichr") {
-                if (!is.null(enriched_pathways()$enrichr$by_cluster)) {
-                    if (is.list(enriched_pathways()$enrichr$by_cluster)) {
-                        tagList(
-                            fluidRow(
-                                column(
-                                    4,
-                                    uiOutput("enriched_pathways_by_cluster_select_cluster_UI")
-                                ),
-                                column(
-                                    8,
-                                    uiOutput("enriched_pathways_by_cluster_select_db_UI")
-                                )
-                            ),
-                            DTOutput("enriched_pathways_by_cluster_table_present")
-                        )
-                    } else if (enriched_pathways()$enrichr$by_cluster == "no_markers_found") {
-                        textOutput("enriched_pathways_by_cluster_table_no_markers_found")
-                    }
-                } else {
-                    textOutput("enriched_pathways_by_cluster_table_missing_enrichr")
-                }
-            }
-        })
-
-
-        # UI element: choose cluster
-        output$enriched_pathways_by_cluster_select_cluster_UI <- renderUI({
-            req(object())
-            req(input$enriched_pathways_by_cluster_select_source)
-            if (input$enriched_pathways_by_cluster_select_source == "enrichr") {
-                choices <- levels(enriched_pathways()$enrichr$by_cluster$cluster) |>
-                    intersect(., unique(enriched_pathways()$enrichr$by_cluster$cluster))
-            }
-            selectInput(
-                "enriched_pathways_by_cluster_select_cluster",
-                label = NULL,
-                choices = choices
-            )
-        })
-
-        # UI element: choose database
-        output$enriched_pathways_by_cluster_select_db_UI <- renderUI({
-            req(
-                input$enriched_pathways_by_cluster_select_source,
-                input$enriched_pathways_by_cluster_select_cluster
-            )
-            choices <- enriched_pathways()$enrichr$by_cluster |>
-                filter(cluster == input$enriched_pathways_by_cluster_select_cluster) |>
-                pull(db) |>
-                intersect(., levels(.))
-            selectInput(
-                "enriched_pathways_by_cluster_select_db",
-                label = NULL,
-                choices = choices
-            )
-        })
-
-        # table
-        output$enriched_pathways_by_cluster_table_present <- renderDT(server = FALSE, {
-            req(
-                input$enriched_pathways_by_cluster_select_source,
-                input$enriched_pathways_by_cluster_select_cluster,
-                input$enriched_pathways_by_cluster_select_db
-            )
-            if (input$enriched_pathways_by_cluster_select_source == "enrichr" & is.data.frame(enriched_pathways()$enrichr$by_cluster)) {
-                format_pathway_table(
-                    enriched_pathways()$enrichr$by_cluster,
-                    input$enriched_pathways_by_cluster_select_cluster,
-                    input$enriched_pathways_by_cluster_select_db
-                )
-            }
-        })
-
-        # # alternative text messages
-        output$enriched_pathways_by_cluster_table_missing <- renderText({
-            "Data not available. Possible reason: Data not generated."
-        })
-
-        output$enriched_pathways_by_cluster_table_no_markers_found <- renderText({
-            "No marker genes identified to perform pathway enrichment analysis with."
-        })
-
-        output$enriched_pathways_by_cluster_table_missing_enrichr <- renderText({
-            "Data not available. Possible reasons: Only 1 cluster in this data set, no marker genes found or data not generated."
-        })
-
-        output$enriched_pathways_by_cluster_table_no_gene_sets_enriched <- renderText({
-            "Either the loaded data set consists of a single cluster (in which case GSVA cannot be applied) or no gene sets were found to be enriched (with the selected statistical thresholds) in any cluster."
-        })
-
-        output$enriched_pathways_by_cluster_table_only_one_cluster_in_data_set <- renderText({
-            "The loaded data set consists of a single cluster which means GSVA cannot be applied."
-        })
-
-        output$enriched_pathways_by_cluster_table_missing_gsva <- renderText({
-            "Data not available. Possible reason: Data not generated."
-        })
-        # info box
-        observeEvent(input$enriched_pathways_by_cluster_info, {
-            showModal(
-                modalDialog(
-                    enriched_pathways_by_cluster_info$text,
-                    title = enriched_pathways_by_cluster_info$title,
-                    easyClose = TRUE,
-                    footer = NULL
-                )
-            )
-        })
     })
 }
 
@@ -1645,27 +1453,8 @@ techInfo <- function(id, object) {
                     "</ul>",
                     "<strong><u>Marker genes</u></strong>",
                     "<ul>",
-                    # "<li><b>Only positive:</b> ",
-                    # sce_metadata()$marker_genes$parameters$only_positive,
-                    # "<li><b>Fraction of cells in group of interest that must express marker gene:</b> ",
-                    # sce_metadata()$marker_genes$parameters$minimum_percentage,
-                    # "<li><b>LogFC threshold:</b> ",
-                    # sce_metadata()$marker_genes$parameters$logFC_threshold,
                     "<li><b>p-value threshold:</b> ",
                     "0.05",
-                    # sce_metadata()$marker_genes$parameters$p_value_threshold,
-                    "</ul>",
-                    "<strong><u>Pathway enrichment</u></strong>",
-                    "<ul>",
-                    # "<li><b>Enrichr:</b>",
-                    # "<ul>",
-                    # "<li><b>Databases:</b> ",
-                    # paste0(sce_metadata()$enriched_pathways$enrichr$parameters$databases, collapse = ", "),
-                    # "<li><b>Adj. p-value cut-off:</b> ",
-                    # sce_metadata()$enriched_pathways$enrichr$parameters$adj_p_cutoff,
-                    # "<li><b>Max. terms:</b> ",
-                    # sce_metadata()$enriched_pathways$enrichr$parameters$max_terms,
-                    # "</ul>",
                     "</ul>"
                 )
                 paste0(
@@ -1896,7 +1685,7 @@ reformatMetadataDR <- function(id, object,
                                viewer_height = 800,
                                viewer_width = 2000,
                                theme = "yeti",
-                               read_fun = "read.csv",
+                               read_fun = "read_csv",
                                read_args = NULL,
                                write_fun = "write.csv",
                                write_args = NULL,

@@ -61,7 +61,7 @@ reformatMetadataDR <- function(
         viewer_height = 800,
         viewer_width = 2000,
         theme = "yeti",
-        read_fun = "read.csv",
+        read_fun = "read_csv",
         read_args = NULL,
         write_fun = "write.csv",
         write_args = NULL,

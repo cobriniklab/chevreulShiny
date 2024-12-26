@@ -29,12 +29,11 @@ unite_metadata <-
 #'
 #' @param object A SingleCellExperiment object
 #' @param gene Gene of interest
-#' @param organism Organism
 #'
 #' @return transcripts constituting a 
 #' gene of interest in a SingleCellExperiment object
-get_transcripts_from_sce <- function(object, gene, organism = "human") {
-    transcripts <- genes_to_transcripts(gene, organism)
+get_transcripts_from_sce <- function(object, gene) {
+    transcripts <- genes_to_transcripts(gene)
 
     transcripts <- transcripts[transcripts %in% get_features(object, 
                                                              "transcript")]
@@ -61,9 +60,9 @@ create_project_db <- function(cache_location = "~/.cache/chevreul",
                            project_path = character(), 
                            project_slug = character(), 
                            project_type = character(), )
-    message(glue(
-        "building table of chevreul projects at {path(cache_location, 
-        sqlite_db)}"))
+    message(paste0(
+        "building table of chevreul projects at ", path(cache_location, 
+        sqlite_db)))
     tryCatch({
         dbWriteTable(con, "projects_tbl", projects_tbl)
     }, warning = function(w) {
@@ -274,7 +273,7 @@ save_sce <- function(object, prefix = "unfiltered", proj_dir = getwd()) {
 
     sce_path <- path(sce_dir, paste0(prefix, "_sce.rds"))
 
-    message(glue("saving to {sce_path}"))
+    message(paste0("saving to ", sce_path))
     saveRDS(object, sce_path)
 
     return(object)
@@ -352,4 +351,23 @@ make_chevreul_clean_names <- function(myvec) {
         str_to_title()
     
     return(myvec)
+}
+
+
+#' Plotly settings
+#'
+#' Change settings of a plotly plot
+#'
+#' @param plotly_plot  A plotly plot
+#' @param width Default set to '600'
+#' @param height Default set to '700'
+#'
+#' @return a plotly plot with settings changed
+plotly_settings <- function(plotly_plot, width = 600, height = 700) {
+    plotly_plot |>
+        layout(dragmode = "lasso") |>
+        config(toImageButtonOptions = list(format = "svg", 
+                                           filename = "myplot", 
+                                           width = width, height = height)) |>
+        identity()
 }
