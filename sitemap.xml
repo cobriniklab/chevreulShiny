@@ -17,7 +17,6 @@
 <url><loc>https://whtns.github.io/chevreulShiny/reference/chevreulShiny-package.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/create_proj_matrix.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/create_project_db.html</loc></url>
-<url><loc>https://whtns.github.io/chevreulShiny/reference/dockerChevreulApp.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/ensembl_version.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/get_transcripts_from_sce.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/grch38.html</loc></url>
@@ -32,6 +31,8 @@
 <url><loc>https://whtns.github.io/chevreulShiny/reference/make_chevreul_clean_names.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/metadata_from_batch.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/minimalChevreulApp.html</loc></url>
+<url><loc>https://whtns.github.io/chevreulShiny/reference/plot_gene_coverage_by_var.html</loc></url>
+<url><loc>https://whtns.github.io/chevreulShiny/reference/plotly_settings.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/read_project_db.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/save_sce.html</loc></url>
 <url><loc>https://whtns.github.io/chevreulShiny/reference/small_example_dataset.html</loc></url>
