@@ -8,7 +8,7 @@ datasets processed as a SingleCellExperiment
 
 A demo using a human gene transcript dataset from Shayler et al. (link)
 is available
-<a href="http://cobrinik-1.saban-chla.usc.edu:8080/app/objectApp" target="_blank" rel="noopener noreferrer">here</a>
+<a href="https://docker.saban.chla.usc.edu/cobrinik/app/seuratApp/" target="_blank" rel="noopener noreferrer">here</a>
 
 There are also convenient functions for:
 
@@ -26,7 +26,7 @@ There are also convenient functions for:
 ## Installation
 
 You can install the released version of chevreulShiny from
-<a href="https://github.com/whtns/chevreulShiny" target="_blank" rel="noopener noreferrer">github</a>
+<a href="https://github.com/cobriniklab/chevreulShiny" target="_blank" rel="noopener noreferrer">github</a>
 with:
 
 ### Install locally and run in three steps:
@@ -35,7 +35,7 @@ You can install chevreulShiny locally using the following steps:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("whtns/chevreulShiny")
+devtools::install_github("cobriniklab/chevreulShiny")
 library(chevreulShiny)
 create_project_db()
 ```
@@ -43,7 +43,7 @@ create_project_db()
 You can also customize the location of the app using these steps:
 
 ``` r
-devtools::install_github("whtns/chevreul")
+devtools::install_github("cobriniklab/chevreul")
 library(chevreulShiny)
 create_project_db(destdir = "/your/path/to/app")
 ```
