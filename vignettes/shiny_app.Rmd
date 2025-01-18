@@ -40,7 +40,7 @@ library(kableExtra)
 ```
 
 
-Chevreul allows exploratory data analysis of a single cell dataset processed 
+chevreulShiny allows exploratory data analysis of a single cell dataset processed 
 using `SingleCellExperiment` with the command `minimalSceApp()`
 
 Here we'll provide a brief tour of this app organized by section with app
@@ -58,7 +58,7 @@ accomplished using a built-in spreadsheet tool.
 ### Plot Data
 
 #### Dimensional reduction plots 
-chevreul provides visualization of embeddings in PCA, tSNE, and UMAP for 
+chevreulShiny provides visualization of embeddings in PCA, tSNE, and UMAP for 
 scRNAseq data summarized at the gene and transcript level. 
 Plots can be customized to display cell metadata and the results of community 
 detection clustering by Louvain or Leiden algorithms as implemented in 
@@ -119,9 +119,9 @@ The parameters that could to be chosen here are:
 
 ### Differential expression
 
-Chevreul provides different methods of differential expression analysis that 
+chevreulShiny provides different methods of differential expression analysis that 
 users can choose from to determine differential expression of gene. DE methods 
-included in Chevreul are t-test, Wilcoxon rank-sum test, and pairwise binomial 
+included in chevreulShiny are t-test, Wilcoxon rank-sum test, and pairwise binomial 
 test.
 
 Running DE testing results in a data frame containing the following information:
@@ -160,7 +160,7 @@ It is often useful to subset a single cell data set based on cell
 metadata whether experimentally determined (age, collection method, etc.) 
 or derived from analysis (quality control metrics, annotated cell type)
 
-chevreul makes it simple to subset a dataset consisting of a single batch 
+chevreulShiny makes it simple to subset a dataset consisting of a single batch 
 or batch-integrated dataset. Subsetting can be accomplished either in a 
 graphical setting by lasso-selection from a dimensionally reduced plot or
 by by specification of a formatted .csv file. 
@@ -206,7 +206,7 @@ and dataset features can be viewed.
 
 ## Server Mode
 If we want work with objects interactively and save the results of our 
-exploratory data analysis we need to operate chevreul in *server mode*. 
+exploratory data analysis we need to operate chevreulShiny in *server mode*. 
 When operating in this manner it is possible to carry out basic project 
 management tasks including:
 * Loading saved objects 
@@ -229,7 +229,7 @@ The following sections will give details on this expanded functionality.
 
 ### Integrate Projects
 
-While operating Chevreul in server mode, separate sequencing batches can be 
+While operating chevreulShiny in server mode, separate sequencing batches can be 
 [integrated](https://www.cell.com/cell/fulltext/S0092-8674(19)30559-8) and 
 compared to validate sample processing steps and exclude technical variation in 
 favor of relevant biological variation. 

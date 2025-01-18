@@ -2,7 +2,7 @@
 % Please edit documentation in R/minimal_chevreul_app.R
 \name{minimalChevreulApp}
 \alias{minimalChevreulApp}
-\title{Create a minimal chevreul app using SingleCellExperiment input}
+\title{Create a minimal chevreulShiny app using SingleCellExperiment input}
 \usage{
 minimalChevreulApp(
   single_cell_sce = NULL,
@@ -24,10 +24,10 @@ minimalChevreulApp(
 \item{db_name}{a database of bigwig files}
 }
 \value{
-a minimal chevreul app
+a minimal chevreulShiny app
 }
 \description{
-Create a minimal chevreul app using SingleCellExperiment input
+Create a minimal chevreulShiny app using SingleCellExperiment input
 }
 \examples{
 

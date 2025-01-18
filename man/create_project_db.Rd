@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{create_project_db}
 \alias{create_project_db}
-\title{Create a database of chevreul projects}
+\title{Create a database of chevreulShiny projects}
 \usage{
 create_project_db(
   cache_location = "~/.cache/chevreul",
@@ -21,5 +21,5 @@ create_project_db(
 a sqlite database with SingleCellExperiment objects
 }
 \description{
-Create a database containing chevreul projects
+Create a database containing chevreulShiny projects
 }

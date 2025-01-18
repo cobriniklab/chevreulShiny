@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{append_to_project_db}
 \alias{append_to_project_db}
-\title{Update a database of chevreul projects}
+\title{Update a database of chevreulShiny projects}
 \usage{
 append_to_project_db(
   new_project_path,

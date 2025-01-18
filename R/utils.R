@@ -40,9 +40,9 @@ get_transcripts_from_sce <- function(object, gene) {
 }
 
 
-#' Create a database of chevreul projects
+#' Create a database of chevreulShiny projects
 #'
-#' Create a database containing chevreul projects
+#' Create a database containing chevreulShiny projects
 #'
 #' @param cache_location Path to cache "~/.cache/chevreul"
 #' @param sqlite_db Database to be created
@@ -61,7 +61,7 @@ create_project_db <- function(cache_location = "~/.cache/chevreul",
                            project_slug = character(), 
                            project_type = character(), )
     message(paste0(
-        "building table of chevreul projects at ", path(cache_location, 
+        "building table of chevreulShiny projects at ", path(cache_location, 
         sqlite_db)))
     tryCatch({
         dbWriteTable(con, "projects_tbl", projects_tbl)
@@ -75,7 +75,7 @@ create_project_db <- function(cache_location = "~/.cache/chevreul",
     dbDisconnect(con)
 }
 
-#' Update a database of chevreul projects
+#' Update a database of chevreulShiny projects
 #'
 #' Add new/update existing projects to the database by recursing fully
 #'
@@ -122,7 +122,7 @@ update_project_db <- function(
     dbDisconnect(con)
 }
 
-#' Update a database of chevreul projects
+#' Update a database of chevreulShiny projects
 #'
 #' Append projects to database
 #'
@@ -164,9 +164,9 @@ append_to_project_db <- function(
     dbDisconnect(con)
 }
 
-#' Read a database of chevreul projects
+#' Read a database of chevreulShiny projects
 #'
-#' Reads database of chevreul projects to a data frame
+#' Reads database of chevreulShiny projects to a data frame
 #'
 #' @param cache_location Path to cache "~/.cache/chevreul"
 #' @param sqlite_db sqlite db
@@ -331,7 +331,7 @@ list_plot_types <- function(object) {
     return(plot_types)
 }
 
-#' Clean Vector of Chevreul Names
+#' Clean Vector of chevreulShiny Names
 #'
 #' Cleans names of objects provided in a vector form
 #'

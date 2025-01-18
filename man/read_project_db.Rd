@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{read_project_db}
 \alias{read_project_db}
-\title{Read a database of chevreul projects}
+\title{Read a database of chevreulShiny projects}
 \usage{
 read_project_db(
   cache_location = "~/.cache/chevreul",
@@ -21,5 +21,5 @@ read_project_db(
 a tibble with SingleCellExperiment objects
 }
 \description{
-Reads database of chevreul projects to a data frame
+Reads database of chevreulShiny projects to a data frame
 }

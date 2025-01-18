@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{make_chevreul_clean_names}
 \alias{make_chevreul_clean_names}
-\title{Clean Vector of Chevreul Names}
+\title{Clean Vector of chevreulShiny Names}
 \usage{
 make_chevreul_clean_names(myvec)
 }
