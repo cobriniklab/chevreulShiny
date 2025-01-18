@@ -50,7 +50,7 @@ create_project_db(destdir = "/your/path/to/app")
 
 ## TLDR
 
-Chevreul provides a single command to:
+chevreulShiny provides a single command to:
 
 - construct a SingleCellExperiment object
 
