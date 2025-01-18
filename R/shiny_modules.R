@@ -1461,7 +1461,7 @@ techInfo <- function(id, object) {
                     info,
                     "<strong><u>Technical info (package versions)</u></strong>",
                     "<ul>",
-                    "<li><strong>chevreul version:</strong> ",
+                    "<li><strong>chevreulShiny version:</strong> ",
                     sce_metadata()$chevreul_version,
                     "<li><strong>SingleCellExperiment version:</strong> ",
                     sce_metadata()$SingleCellExperiment_version,

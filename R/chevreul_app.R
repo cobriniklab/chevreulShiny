@@ -204,7 +204,7 @@ chevreulApp <-
             ), tabItem(
                 tabName = "techInfo",
                 h2("Technical Information"),
-                h3(paste0("chevreul version: ", packageVersion("chevreulShiny"))),
+                h3(paste0("chevreulShiny version: ", packageVersion("chevreulShiny"))),
                 techInfoui("techInfo")
             )
         )

@@ -1,4 +1,4 @@
-#' Create a minimal chevreul app using SingleCellExperiment input
+#' Create a minimal chevreulShiny app using SingleCellExperiment input
 #'
 #' @param single_cell_sce a singlecell object
 #' @param appTitle a title for the app
@@ -6,7 +6,7 @@
 #' @param futureMb the megabytes available for the future package
 #' @param db_name a database of bigwig files
 #'
-#' @return a minimal chevreul app
+#' @return a minimal chevreulShiny app
 #' @export
 #'
 #' @examples
