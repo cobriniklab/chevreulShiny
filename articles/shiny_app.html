@@ -72,7 +72,7 @@ Bhat</h4>
 California<br><a class="author_email" href="mailto:#"></a><a href="mailto:bbhat@usc.edu" class="email">bbhat@usc.edu</a>
       </address>
                   
-            <h4 data-toc-skip class="date">15 January 2025</h4>
+            <h4 data-toc-skip class="date">18 January 2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/cobriniklab/chevreulShiny/blob/master/vignettes/shiny_app.Rmd" class="external-link"><code>vignettes/shiny_app.Rmd</code></a></small>
       <div class="d-none name"><code>shiny_app.Rmd</code></div>
@@ -80,9 +80,9 @@ California<br><a class="author_email" href="mailto:#"></a><a href="mailto:bbhat@
 
     
     
-<p>Chevreul allows exploratory data analysis of a single cell dataset
-processed using <code>SingleCellExperiment</code> with the command
-<code>minimalSceApp()</code></p>
+<p>chevreulShiny allows exploratory data analysis of a single cell
+dataset processed chevreulShiny
+ngleCellExperiment<code>with the command</code>minimalSceApp()`</p>
 <p>Here we’ll provide a brief tour of this app organized by section with
 app functions organized as tabs along the sidebar upon startup.</p>
 <div class="section level3">
@@ -100,13 +100,13 @@ also be accomplished using a built-in spreadsheet tool.</p>
 <div class="section level4">
 <h4 id="dimensional-reduction-plots">Dimensional reduction plots<a class="anchor" aria-label="anchor" href="#dimensional-reduction-plots"></a>
 </h4>
-<p>chevreul provides visualization of embeddings in PCA, tSNE, and UMAP
-for scRNAseq data summarized at the gene and transcript level. Plots can
-be customized to display cell metadata and the results of community
-detection clustering by Louvain or Leiden algorithms as implemented in
-SingleCellExperiment. In addition, gene and transcript feature
-expression can be overlaid on embedding plots both at the gene and
-transcript level.</p>
+<p>chevreulShiny provides visualization of embeddings in PCA, tSNE, and
+UMAP for scRNAseq data summarized at the gene and transcript level.
+Plots can be customized to display cell metadata and the results of
+community detection clustering by Louvain or Leiden algorithms as
+implemented in SingleCellExperiment. In addition, gene and transcript
+feature expression can be overlaid on embedding plots both at the gene
+and transcript level.</p>
 <p><img src="images%2Flouvain_and_feature_umap_plot.png"></p>
 </div>
 <div class="section level4">
@@ -164,10 +164,10 @@ variable’ 2. ‘Data Type (Transformed/Raw)’</p>
 <div class="section level3">
 <h3 id="differential-expression">Differential expression<a class="anchor" aria-label="anchor" href="#differential-expression"></a>
 </h3>
-<p>Chevreul provides different methods of differential expression
+<p>chevreulShiny provides different methods of differential expression
 analysis that users can choose from to determine differential expression
-of gene. DE methods included in Chevreul are t-test, Wilcoxon rank-sum
-test, and pairwise binomial test.</p>
+of gene. DE methods included in chevreulShiny are t-test, Wilcoxon
+rank-sum test, and pairwise binomial test.</p>
 <p>Running DE testing results in a data frame containing the following
 information: * p_val : Unadjusted p-value * avg_log2FC : log fold-change
 of the average expression between the two groups. * pct.1 : The
@@ -199,10 +199,10 @@ on adjusted p value and thresholded log fold change.</p>
 metadata whether experimentally determined (age, collection method,
 etc.) or derived from analysis (quality control metrics, annotated cell
 type)</p>
-<p>chevreul makes it simple to subset a dataset consisting of a single
-batch or batch-integrated dataset. Subsetting can be accomplished either
-in a graphical setting by lasso-selection from a dimensionally reduced
-plot or by by specification of a formatted .csv file.</p>
+<p>chevreulShiny makes it simple to subset a dataset consisting of a
+single batch or batch-integrated dataset. Subsetting can be accomplished
+either in a graphical setting by lasso-selection from a dimensionally
+reduced plot or by by specification of a formatted .csv file.</p>
 <p>Subsetting of single or batch integrated data will trigger renewal of
 all relevant preprocessing steps including dimensional reduction,
 clustering, marker gene, and pathway enrichment as well as integration
@@ -244,12 +244,12 @@ numbers, and dataset features can be viewed.</p>
 <h2 id="server-mode">Server Mode<a class="anchor" aria-label="anchor" href="#server-mode"></a>
 </h2>
 <p>If we want work with objects interactively and save the results of
-our exploratory data analysis we need to operate chevreul in <em>server
-mode</em>. When operating in this manner it is possible to carry out
-basic project management tasks including: * Loading saved objects *
-Saving objects after making changes in the app such as : * Reformatting
-metadata * Subsetting to remove cells * Regressing feature expression as
-well as * Integrating multiple saved objects</p>
+our exploratory data analysis we need to operate chevreulShiny in
+<em>server mode</em>. When operating in this manner it is possible to
+carry out basic project management tasks including: * Loading saved
+objects * Saving objects after making changes in the app such as : *
+Reformatting metadata * Subsetting to remove cells * Regressing feature
+expression as well as * Integrating multiple saved objects</p>
 <p>Finally, server mode is necessary for some expanded functionality
 including: * Coverage plotting</p>
 <p><em>server mode</em> requires access to a few sqlite databases with
@@ -263,8 +263,8 @@ functionality.</p>
 <div class="section level3">
 <h3 id="integrate-projects">Integrate Projects<a class="anchor" aria-label="anchor" href="#integrate-projects"></a>
 </h3>
-<p>While operating Chevreul in server mode, separate sequencing batches
-can be <a href="https://www.cell.com/cell/fulltext/S0092-8674(19)30559-8" class="external-link">integrated</a>
+<p>While operating chevreulShiny in server mode, separate sequencing
+batches can be <a href="https://www.cell.com/cell/fulltext/S0092-8674(19)30559-8" class="external-link">integrated</a>
 and compared to validate sample processing steps and exclude technical
 variation in favor of relevant biological variation.</p>
 <p><img src="images%2Fintegration_result.png" style="width:80.0%;height:80.0%"></p>
@@ -314,9 +314,9 @@ displayed</p>
 <span><span class="co">#&gt;  [1] digest_0.6.37       desc_1.4.3          R6_2.5.1            bookdown_0.42       fastmap_1.2.0      </span></span>
 <span><span class="co">#&gt;  [6] xfun_0.50           cachem_1.1.0        knitr_1.49          htmltools_0.5.8.1   rmarkdown_2.29     </span></span>
 <span><span class="co">#&gt; [11] lifecycle_1.0.4     cli_3.6.3           sass_0.4.9          pkgdown_2.1.1       textshaping_0.4.1  </span></span>
-<span><span class="co">#&gt; [16] jquerylib_0.1.4     systemfonts_1.1.0   compiler_4.4.2      tools_4.4.2         ragg_1.3.3         </span></span>
+<span><span class="co">#&gt; [16] jquerylib_0.1.4     systemfonts_1.2.0   compiler_4.4.2      tools_4.4.2         ragg_1.3.3         </span></span>
 <span><span class="co">#&gt; [21] evaluate_1.0.3      bslib_0.8.0         yaml_2.3.10         BiocManager_1.30.25 jsonlite_1.8.9     </span></span>
-<span><span class="co">#&gt; [26] rlang_1.1.4         fs_1.6.5            htmlwidgets_1.6.4</span></span></code></pre>
+<span><span class="co">#&gt; [26] rlang_1.1.5         fs_1.6.5            htmlwidgets_1.6.4</span></span></code></pre>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
