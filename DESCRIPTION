@@ -32,7 +32,6 @@ Imports:
     dplyr,
     DT,
     EnhancedVolcano,
-    EnsDb.Hsapiens.v86,
     fs,
     future,
     ggplot2,
@@ -64,7 +63,9 @@ Suggests:
     knitr,
     RefManageR,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    EnsDb.Mmusculus.v79,
+    EnsDb.Hsapiens.v86
 VignetteBuilder:
     knitr
 Encoding: UTF-8

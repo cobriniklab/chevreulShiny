@@ -39,7 +39,6 @@
 #' @importFrom DT formatStyle
 #' @importFrom DT renderDT
 #' @importFrom EnhancedVolcano EnhancedVolcano
-#' @importFrom EnsDb.Hsapiens.v86 EnsDb.Hsapiens.v86
 #' @importFrom fs dir_ls
 #' @importFrom fs path
 #' @importFrom fs path_dir

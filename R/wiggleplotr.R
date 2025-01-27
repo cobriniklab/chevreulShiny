@@ -37,9 +37,16 @@ plot_gene_coverage_by_var <- function(
         ...) {
     organism <- match.arg(organism)
     if (missing(edb)) {
+        
+        if (!requireNamespace('EnsDb.Mmusculus.v79', quietly = TRUE))
+            stop("Install 'EnsDb.Mmusculus.v79' to use this function.")
+        
+        if (!requireNamespace('EnsDb.Hsapiens.v86', quietly = TRUE))
+            stop("Install 'EnsDb.Hsapiens.v86' to use this function.")
+        
         edb <- switch(organism,
-                      mouse = EnsDb.Mmusculus.v79,
-                      human = EnsDb.Hsapiens.v86
+                      mouse = EnsDb.Mmusculus.v79::EnsDb.Mmusculus.v79,
+                      human = EnsDb.Hsapiens.v86::EnsDb.Hsapiens.v86
         )
     }
     
