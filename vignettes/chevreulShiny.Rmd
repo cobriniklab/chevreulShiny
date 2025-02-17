@@ -99,9 +99,7 @@ reduction of Raw Sequencing Data.
 library("chevreulShiny")
 
 # Load the data
-library(chevreuldata)
-chevreul_sce <- human_gene_transcript_sce()
-chevreul_sce
+data("small_example_dataset")
 ```
 
 ## Shiny app
@@ -111,7 +109,7 @@ visualization which can be accessed via
 
 ```{r "start", message=FALSE, eval = FALSE}
 
-minimalChevreulApp(chevreul_sce)
+minimalChevreulApp(small_example_dataset)
 
 ```
 
