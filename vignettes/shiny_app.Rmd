@@ -36,7 +36,6 @@ knitr::opts_chunk$set(
     crop = NULL ## Related to https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016656.html
 )
 
-library(kableExtra)
 ```
 
 
@@ -258,7 +257,6 @@ The three user input parameters are:
 
 ```{r reproduce3, echo=FALSE}
 ## Session info
-library("sessioninfo")
 options(width = 120)
 sessionInfo()
 ```
