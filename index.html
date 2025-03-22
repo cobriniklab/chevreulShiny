@@ -104,7 +104,7 @@
 </h2>
 <p>By default clustering will be run at ten different resolutions between 0.2 and 2.0. Any resolution can be specified by providing the resolution argument as a numeric vector.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">clustered_sce</span> <span class="op">&lt;-</span> <span class="fu">clustering_workflow</span><span class="op">(</span><span class="va">chevreul_sce</span>,</span>
+<code class="sourceCode R"><span><span class="va">clustered_sce</span> <span class="op">&lt;-</span> <span class="fu">sce_clustering_workflow</span><span class="op">(</span><span class="va">chevreul_sce</span>,</span>
 <span>    experiment_name <span class="op">=</span> <span class="st">"sce_hu_trans"</span>,</span>
 <span>    organism <span class="op">=</span> <span class="st">"human"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
