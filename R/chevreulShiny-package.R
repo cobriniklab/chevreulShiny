@@ -45,6 +45,7 @@
 #' @importFrom fs path_dir
 #' @importFrom fs path_file
 #' @importFrom future plan
+#' @importFrom future availableCores
 #' @importFrom ggplotify as.ggplot
 #' @importFrom grDevices dev.off 
 #' @importFrom grDevices pdf

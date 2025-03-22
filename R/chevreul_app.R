@@ -32,10 +32,24 @@ chevreulApp <-
     db_path <- file.path(user_cache_dir(appname="chevreulShiny"), db_name)
 
     message(packageVersion("chevreulShiny"))
-    plan(strategy = "multicore", workers = 6)
+    
+    is_windows <- function() {
+        .Platform$OS.type == "windows"
+    }
+    
+    if(is_windows()){
+        plan(strategy = "multisession", workers = 6)  # Limit to 6 cores
+    } else {
+        plan(strategy = "multicore", workers = 6)  # Limit to 6 cores
+    }
+    
+    # sets the maximum allowed total size (in bytes) of global variables
     future_size <- futureMb * 1024^2
     options(future.globals.maxSize = future_size)
+    
+    # controls the maximum file size allowed for uploads
     options(shiny.maxRequestSize = 40 * 1024^2)
+    
     options(DT.options = list(
         pageLength = 2000, paging = FALSE,
         info = TRUE, searching = TRUE, autoWidth = FALSE, ordering = TRUE,
@@ -150,9 +164,6 @@ chevreulApp <-
                 plotDimRedui("subset"),
                 chevreulBox(
                     title = "Subset Settings",
-                    checkboxInput("legacySettingsSubset", 
-                                  "Use Legacy Settings",
-                                  value = FALSE),
                     actionButton("subsetAction",
                                  "subset object by selected cells"),
                     actionButton("subsetCsv", "subset object by uploaded csv"),
@@ -469,15 +480,13 @@ chevreulApp <-
                         message("reintegrating gene expression")
                         reintegrated_sce <- reintegrate_sce(object(),
                             resolution = seq(0.2, 1, by = 0.2),
-                            legacy_settings = input$legacySettingsSubset,
                             organism = metadata(object())$experiment$organism
                         )
                         object(reintegrated_sce)
                     } else {
                         subset_sce <- sce_process(
                           object(),
-                          resolution = seq(0.2, 1, by = 0.2),
-                          legacy_settings = input$legacySettingsSubset)
+                          resolution = seq(0.2, 1, by = 0.2))
                         object(subset_sce)
                     }
                     message("Complete!")
@@ -506,7 +515,6 @@ chevreulApp <-
                         message("reintegrating gene expression")
                         reintegrated_sce <- reintegrate_sce(object(),
                             resolution = seq(0.2, 1, by = 0.2),
-                            legacy_settings = input$legacySettingsSubset,
                             organism = metadata(object())$experiment$organism
                         )
                         object(reintegrated_sce)
@@ -515,8 +523,7 @@ chevreulApp <-
                             resolution = seq(0.2,
                                 2,
                                 by = 0.2
-                            ),
-                            legacy_settings = input$legacySettingsSubset
+                            )
                         )
                         object(subset_sce)
                     }

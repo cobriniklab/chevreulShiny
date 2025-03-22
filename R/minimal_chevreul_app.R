@@ -21,13 +21,30 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                           organism_type = "human",
                           futureMb = 13000,
                           db_name = "single-cell-projects.db") {
+    db_path <- file.path(user_cache_dir(appname="chevreul"), db_name)
 
-  db_path <- file.path(user_cache_dir(appname="chevreul"), db_name)
-
-    plan(strategy = "multicore", workers = 6)
+    get_adjusted_cores <- function() {
+        available_cores <- availableCores()[1]
+        if (available_cores > 2) {
+            return(available_cores - 2)
+        } else {
+            return(1)
+        }
+    }
+    
+    if(.Platform$OS.type == "windows"){
+        plan(strategy = "multisession", workers = get_adjusted_cores())  # Limit to 6 cores
+    } else {
+        plan(strategy = "multicore", workers = get_adjusted_cores())  # Limit to 6 cores
+    }
+    
+    # sets the maximum allowed total size (in bytes) of global variables
     future_size <- futureMb * 1024^2
     options(future.globals.maxSize = future_size)
+    
+    # controls the maximum file size allowed for uploads
     options(shiny.maxRequestSize = 40 * 1024^2)
+
     options(DT.options = list(
         pageLength = 2000, paging = FALSE,
         info = TRUE, searching = TRUE, autoWidth = FALSE, ordering = TRUE,
@@ -120,8 +137,8 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                 plotDimRedui("subset"),
                 chevreulBox(
                     title = "Subset Settings",
-                    checkboxInput("legacySettingsSubset",
-                                  "Use Legacy Settings", value = FALSE),
+                    actionButton("resetObject",
+                                 "reset object to initial state"),
                     actionButton("subsetAction",
                                  "subset object by selected cells"),
                     actionButton("subsetCsv", "subset object by uploaded csv"),
@@ -297,6 +314,7 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
             diffex_selected_cells
         )
         
+        # subset by lasso selection
         observeEvent(input$subsetAction, {
             req(input$subsetAction)
             req(subset_selected_cells())
@@ -331,6 +349,8 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                 }
             )
         })
+        
+        # subset by .csv
         observeEvent(input$subsetCsv, {
             req(input$subsetCsv)
             req(input$uploadCsv)
@@ -366,6 +386,11 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                     ), add = FALSE)
                 }
             )
+        })
+        
+        # reset to original object
+        observeEvent(input$resetObject, {
+            object(single_cell_sce)
         })
 
         observeEvent(input$regressAction, {

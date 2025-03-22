@@ -305,7 +305,6 @@ integrateProjui <- function(id) {
             # useShinyjs(),
             # runcodeUI(code = "alert('Hello!')", id = "subsetcode"),
             textOutput(ns("integrationMessages")),
-            checkboxInput(ns("legacySettings"), "Use Legacy Settings", value = FALSE),
             textOutput(ns("integrationResult")),
             shinySaveButton(ns("saveIntegratedProject"), "Save Integrated Project", "Save project as..."),
             DTOutput(ns("myDatatable")),
@@ -384,12 +383,9 @@ integrateProj <- function(id, proj_matrices, object, proj_dir, con) {
                     message(names(batches))
                     mergedObjects(
                         integration_workflow(
-                            batches,
-                            legacy_settings = input$legacySettings
+                            batches
                         )
                     )
-                    # mergedObjects(batches[[1]])
-
                     message("Integration Complete!")
                 },
                 message = function(m) {
