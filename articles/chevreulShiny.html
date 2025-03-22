@@ -141,25 +141,7 @@ reduction of Raw Sequencing Data.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/cobriniklab/chevreulShiny" class="external-link">"chevreulShiny"</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Load the data</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cobriniklab/chevreuldata" class="external-link">chevreuldata</a></span><span class="op">)</span></span>
-<span><span class="va">chevreul_sce</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/chevreuldata/man/human_gene_transcript_sce.html" class="external-link">human_gene_transcript_sce</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">chevreul_sce</span></span>
-<span><span class="co">#&gt; class: SingleCellExperiment </span></span>
-<span><span class="co">#&gt; dim: 56267 794 </span></span>
-<span><span class="co">#&gt; metadata(4): merge.info pca.info experiment markers</span></span>
-<span><span class="co">#&gt; assays(3): reconstructed counts logcounts</span></span>
-<span><span class="co">#&gt; rownames(56267): 5-8S-rRNA 5S-rRNA ... ZZEF1 ZZZ3</span></span>
-<span><span class="co">#&gt; rowData names(1): rotation</span></span>
-<span><span class="co">#&gt; colnames(794): hs20151130-SC1-26 hs20151130-SC1-28 ...</span></span>
-<span><span class="co">#&gt;   20200312-DS-dissected-81 20200312-DS-dissected-83</span></span>
-<span><span class="co">#&gt; colData names(33): batch Sequencing_Run ... gene_snn_res.0.8</span></span>
-<span><span class="co">#&gt;   gene_snn_res.1</span></span>
-<span><span class="co">#&gt; reducedDimNames(3): corrected TSNE UMAP</span></span>
-<span><span class="co">#&gt; mainExpName: integrated</span></span>
-<span><span class="co">#&gt; altExpNames(2): gene transcript</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/cobriniklab/chevreulShiny" class="external-link">"chevreulShiny"</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="shiny-app">Shiny app<a class="anchor" aria-label="anchor" href="#shiny-app"></a>
 </h3>
@@ -167,7 +149,7 @@ reduction of Raw Sequencing Data.</li>
 analysis and visualization which can be accessed via</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="fu"><a href="../reference/minimalChevreulApp.html">minimalChevreulApp</a></span><span class="op">(</span><span class="va">chevreul_sce</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/minimalChevreulApp.html">minimalChevreulApp</a></span><span class="op">(</span><span class="va">small_example_sce</span><span class="op">)</span></span></code></pre></div>
 <p>Note: the SCE object must be pre-processed and integrated (if
 required) prior to building the shiny app.</p>
 <p>The app is arranged into different sections each of which performs
@@ -195,12 +177,10 @@ app is provided within the “shiny app” vignette.</p>
 <span><span class="co">#&gt;  alabaster.schemas      1.6.0     <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  AnnotationDbi          1.68.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  AnnotationFilter       1.30.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
-<span><span class="co">#&gt;  AnnotationHub        * 3.14.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  batchelor              1.22.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  beachmat               2.22.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  beeswarm               0.4.0     <span style="color: #555555;">2021-06-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  Biobase              * 2.66.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
-<span><span class="co">#&gt;  BiocFileCache        * 2.14.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  BiocGenerics         * 0.52.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  BiocIO                 1.16.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  BiocManager            1.30.25   <span style="color: #555555;">2024-08-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -208,7 +188,6 @@ app is provided within the “shiny app” vignette.</p>
 <span><span class="co">#&gt;  BiocParallel           1.40.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  BiocSingular           1.22.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  BiocStyle            * 2.34.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
-<span><span class="co">#&gt;  BiocVersion            3.20.0    <span style="color: #555555;">2024-10-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  Biostrings             2.74.1    <span style="color: #555555;">2024-12-16</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  bit                    4.6.0     <span style="color: #555555;">2025-03-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  bit64                  4.6.0-1   <span style="color: #555555;">2025-01-16</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -218,9 +197,8 @@ app is provided within the “shiny app” vignette.</p>
 <span><span class="co">#&gt;  bookdown               0.42      <span style="color: #555555;">2025-01-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  bslib                  0.9.0     <span style="color: #555555;">2025-01-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  cachem                 1.1.0     <span style="color: #555555;">2024-05-16</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  chevreuldata         * 0.99.26   <span style="color: #555555;">2025-03-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (cobriniklab/chevreuldata@4881b44)</span></span></span>
-<span><span class="co">#&gt;  chevreulPlot         * 0.99.27   <span style="color: #555555;">2025-03-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (cobriniklab/chevreulPlot@da71c68)</span></span></span>
-<span><span class="co">#&gt;  chevreulProcess      * 0.99.23   <span style="color: #555555;">2025-03-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (cobriniklab/chevreulProcess@9a49061)</span></span></span>
+<span><span class="co">#&gt;  chevreulPlot         * 0.99.27   <span style="color: #555555;">2025-03-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (cobriniklab/chevreulPlot@31a877a)</span></span></span>
+<span><span class="co">#&gt;  chevreulProcess      * 0.99.23   <span style="color: #555555;">2025-03-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (cobriniklab/chevreulProcess@671100b)</span></span></span>
 <span><span class="co">#&gt;  chevreulShiny        * 0.99.26   <span style="color: #555555;">2025-03-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  circlize               0.4.16    <span style="color: #555555;">2024-02-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  cli                    3.6.4     <span style="color: #555555;">2025-02-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -236,7 +214,6 @@ app is provided within the “shiny app” vignette.</p>
 <span><span class="co">#&gt;  data.table             1.17.0    <span style="color: #555555;">2025-02-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  DataEditR              0.1.5     <span style="color: #555555;">2022-03-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  DBI                    1.2.3     <span style="color: #555555;">2024-06-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  dbplyr               * 2.5.0     <span style="color: #555555;">2024-03-19</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  DelayedArray           0.32.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  DelayedMatrixStats     1.28.1    <span style="color: #555555;">2025-01-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  desc                   1.4.3     <span style="color: #555555;">2023-12-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -250,10 +227,8 @@ app is provided within the “shiny app” vignette.</p>
 <span><span class="co">#&gt;  EnsDb.Hsapiens.v86     2.99.0    <span style="color: #555555;">2025-03-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
 <span><span class="co">#&gt;  ensembldb              2.30.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  evaluate               1.0.3     <span style="color: #555555;">2025-01-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  ExperimentHub        * 2.14.0    <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Bioconduc~</span></span></span>
 <span><span class="co">#&gt;  farver                 2.1.2     <span style="color: #555555;">2024-05-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  fastmap                1.2.0     <span style="color: #555555;">2024-05-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  filelock               1.0.3     <span style="color: #555555;">2023-12-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  forcats                1.0.0     <span style="color: #555555;">2023-01-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  foreach                1.5.2     <span style="color: #555555;">2022-02-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  fs                     1.6.5     <span style="color: #555555;">2024-10-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
