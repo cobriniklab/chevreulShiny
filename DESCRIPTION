@@ -76,7 +76,6 @@ biocViews:
     Transcription, SingleCell, Transcriptomics, Normalization, Preprocessing, 
     QualityControl, DimensionReduction, DataImport
 Config/testthat/edition: 3
-Remotes:  
-    https://github.com/cobriniklab/chevreuldata,
+Remotes:
     https://github.com/cobriniklab/chevreulPlot,
     https://github.com/cobriniklab/chevreulProcess
