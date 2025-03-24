@@ -1,15 +1,15 @@
 Type: Package
 Package: chevreulShiny
-Title: Tools for managing SingleCellExperiment objects as projects
+Title: Interactive exploratory data analysis of full-length scRNA-seq as SingleCellExperiments
 Version: 0.99.26
 Authors@R: c(
     person("Kevin", "Stachelek", email = "kevin.stachelek@gmail.com", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0003-2085-695X")),
     person("Bhavana", "Bhat", email = "bhavanabhat29@gmail.com", role = "aut")
     )
-Description: Tools for managing SingleCellExperiment objects as projects. 
-    Includes functions for analysis and visualization of single-cell data. 
-    Also included is a shiny app for visualization of pre-processed scRNA data.
+Description: Interactive exploratory data analysis of full-length scRNA-seq 
+    as SingleCellExperiments. Includes a shiny app for visualization of 
+    pre-processed scRNA data.
     Supported by NIH grants R01CA137124 and R01EY026661 to David Cobrinik.
 License: MIT + file LICENSE
 URL: https://github.com/cobriniklab/chevreulShiny,
