@@ -70,12 +70,12 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                         tabName = "allTranscripts", icon = icon("sliders-h")
             ), menuItem("Subset",
                 tabName = "subsetObject", icon = icon("filter")
-            ),  menuItem("Regression",
-                tabName = "regressFeatures", icon = icon("eraser")
+            # ),  menuItem("Regression",
+            #     tabName = "regressFeatures", icon = icon("eraser")
             ),menuItem("Formatting",
                        tabName = "reformatMetadata", icon = icon("columns")
-            ), menuItem("Coverage Plots",
-                        tabName = "coveragePlots", icon = icon("mountain")
+            # ), menuItem("Coverage Plots",
+            #             tabName = "coveragePlots", icon = icon("mountain")
             ), menuItem("Technical Information",
                 tabName = "techInfo", icon = icon("cogs")
             )
@@ -117,12 +117,12 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                     plotHeatmapui("heatMap")
                 )
             ),
-            tabItem(
-                tabName = "coveragePlots",
-                fluidRow(
-                    plotCoverage_UI("coverageplots")
-                )
-            ),
+            # tabItem(
+            #     tabName = "coveragePlots",
+            #     fluidRow(
+            #         plotCoverage_UI("coverageplots")
+            #     )
+            # ),
             tabItem(
                 tabName = "reformatMetadata",
                 fluidRow(

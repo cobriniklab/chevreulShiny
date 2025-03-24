@@ -189,7 +189,6 @@ plotHeatmapui <- function(id) {
 plotHeatmap <- function(id, object, featureType, organism_type) {
     stopifnot(is.reactive(object))
 
-
     moduleServer(id, function(input, output, session) {
         ns <- session$ns
 
@@ -250,7 +249,7 @@ plotHeatmap <- function(id, object, featureType, organism_type) {
 
         heatmap_plot <- eventReactive(input$actionHeatmap, {
             req(input$customFeature)
-            req(input$colAnnoVar)
+            # req(input$colAnnoVar)
 
             if (query_experiment(object(), "integrated")) {
                 experiment <- "integrated"
