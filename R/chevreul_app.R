@@ -22,6 +22,7 @@ prep_slider_values <- function(default_val) {
 #' @param db_name sqlite database with list of saved
 #' SingleCellExperiment objects
 #' @return a shiny app
+#' @export
 chevreulApp <-
   function(preset_project,
            appTitle = "chevreul",
@@ -29,18 +30,24 @@ chevreulApp <-
            futureMb = 13000,
            db_name = "single-cell-projects.db") {
 
-    db_path <- file.path(user_cache_dir(appname="chevreulShiny"), db_name)
+    db_path <- file.path(user_cache_dir(appname="chevreul"), db_name)
 
     message(packageVersion("chevreulShiny"))
     
-    is_windows <- function() {
-        .Platform$OS.type == "windows"
+    # leave slack in the number of cores or sessions
+    get_adjusted_cores <- function() {
+        available_cores <- availableCores()[1]
+        if (available_cores > 2) {
+            return(available_cores - 2)
+        } else {
+            return(1)
+        }
     }
     
-    if(is_windows()){
-        plan(strategy = "multisession", workers = 6)  # Limit to 6 cores
+    if(.Platform$OS.type == "windows"){
+        plan(strategy = "multisession", workers = get_adjusted_cores())  
     } else {
-        plan(strategy = "multicore", workers = 6)  # Limit to 6 cores
+        plan(strategy = "multicore", workers = get_adjusted_cores())
     }
     
     # sets the maximum allowed total size (in bytes) of global variables
