@@ -6,7 +6,7 @@
 \usage{
 update_project_db(
   projects_dir = NULL,
-  cache_location = "~/.cache/chevreul",
+  cache_location = rappdirs::user_cache_dir(appname = "chevreul"),
   sqlite_db = "single-cell-projects.db",
   verbose = TRUE
 )
@@ -14,7 +14,7 @@ update_project_db(
 \arguments{
 \item{projects_dir}{The project directory to be updated}
 
-\item{cache_location}{Path to cache "~/.cache/chevreul"}
+\item{cache_location}{Path to cache default uses rappdirs::user_cache_dir}
 
 \item{sqlite_db}{sqlite db}
 

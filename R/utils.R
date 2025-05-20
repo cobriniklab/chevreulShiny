@@ -44,12 +44,13 @@ get_transcripts_from_sce <- function(object, gene) {
 #'
 #' Create a database containing chevreul projects
 #'
-#' @param cache_location Path to cache "~/.cache/chevreul"
+#' @param cache_location Path to cache default uses rappdirs::user_cache_dir
 #' @param sqlite_db Database to be created
 #' @param verbose print messages
 #'
 #' @return a sqlite database with SingleCellExperiment objects
-create_project_db <- function(cache_location = "~/.cache/chevreul", 
+#' @export
+create_project_db <- function(cache_location = rappdirs::user_cache_dir(appname = "chevreul"), 
                               sqlite_db = "single-cell-projects.db", 
                               verbose = TRUE) {
     if (!dir.exists(cache_location)) {
@@ -80,14 +81,14 @@ create_project_db <- function(cache_location = "~/.cache/chevreul",
 #' Add new/update existing projects to the database by recursing fully
 #'
 #' @param projects_dir The project directory to be updated
-#' @param cache_location Path to cache "~/.cache/chevreul"
+#' @param cache_location Path to cache default uses rappdirs::user_cache_dir
 #' @param sqlite_db sqlite db
 #' @param verbose print messages
 #'
 #' @return a sqlite database with SingleCellExperiment objects
 update_project_db <- function(
         projects_dir = NULL,
-        cache_location = "~/.cache/chevreul",
+        cache_location = rappdirs::user_cache_dir(appname = "chevreul"),
         sqlite_db = "single-cell-projects.db",
         verbose = TRUE) {
     if (!dir.exists(cache_location)) {
@@ -134,7 +135,7 @@ update_project_db <- function(
 
 append_to_project_db <- function(
         new_project_path,
-        cache_location = "~/.cache/chevreul",
+        cache_location = rappdirs::user_cache_dir(appname = "chevreul"),
         sqlite_db = "single-cell-projects.db",
         verbose = TRUE) {
     if (!dir.exists(cache_location)) {
@@ -176,7 +177,7 @@ append_to_project_db <- function(
 #
 
 read_project_db <- function(
-        cache_location = "~/.cache/chevreul",
+        cache_location = rappdirs::user_cache_dir(appname = "chevreul"),
         sqlite_db = "single-cell-projects.db",
         verbose = TRUE) {
     if (!dir.exists(cache_location)) {
@@ -203,7 +204,7 @@ read_project_db <- function(
 #' @return a sqlite database of bigwig files for cells 
 #' in a SingleCellExperiment object
 make_bigwig_db <- function(new_project = NULL, 
-                           cache_location = "~/.cache/chevreul/", 
+                           cache_location = rappdirs::user_cache_dir(appname = "chevreul"), 
                            sqlite_db = "bw-files.db") {
     new_bigwigfiles <- dir_ls(new_project, glob = "*.bw", recurse = TRUE)
 

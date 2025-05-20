@@ -20,7 +20,9 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                           appTitle = NULL,
                           organism_type = "human",
                           futureMb = 13000,
-                          db_name = "single-cell-projects.db") {
+                          db_name = "single-cell-projects.db",
+                          bigwig_db = bw_files) {
+    
     db_path <- file.path(user_cache_dir(appname="chevreul"), db_name)
 
     get_adjusted_cores <- function() {
@@ -74,8 +76,8 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
             #     tabName = "regressFeatures", icon = icon("eraser")
             ),menuItem("Formatting",
                        tabName = "reformatMetadata", icon = icon("columns")
-            # ), menuItem("Coverage Plots",
-            #             tabName = "coveragePlots", icon = icon("mountain")
+            ), menuItem("Coverage Plots",
+                        tabName = "coveragePlots", icon = icon("mountain")
             ), menuItem("Technical Information",
                 tabName = "techInfo", icon = icon("cogs")
             )
@@ -117,12 +119,12 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
                     plotHeatmapui("heatMap")
                 )
             ),
-            # tabItem(
-            #     tabName = "coveragePlots",
-            #     fluidRow(
-            #         plotCoverage_UI("coverageplots")
-            #     )
-            # ),
+            tabItem(
+                tabName = "coveragePlots",
+                fluidRow(
+                    plotCoverage_UI("coverageplots")
+                )
+            ),
             tabItem(
                 tabName = "reformatMetadata",
                 fluidRow(
@@ -271,7 +273,7 @@ minimalChevreulApp <- function(single_cell_sce = NULL,
             organism_type
         )
         plotCoverage("coverageplots", object, plot_types, proj_dir, 
-            organism_type
+            organism_type, bigwig_db = bigwig_db
         )
         plotClustree("clustreePlot", object)
         tableSelected("tableselected", object)

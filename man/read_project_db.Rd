@@ -5,7 +5,7 @@
 \title{Read a database of chevreul projects}
 \usage{
 read_project_db(
-  cache_location = "~/.cache/chevreul",
+  cache_location = rappdirs::user_cache_dir(appname = "chevreul"),
   sqlite_db = "single-cell-projects.db",
   verbose = TRUE
 )

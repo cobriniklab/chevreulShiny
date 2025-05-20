@@ -6,7 +6,7 @@
 \usage{
 append_to_project_db(
   new_project_path,
-  cache_location = "~/.cache/chevreul",
+  cache_location = rappdirs::user_cache_dir(appname = "chevreul"),
   sqlite_db = "single-cell-projects.db",
   verbose = TRUE
 )

@@ -6,7 +6,7 @@
 \usage{
 make_bigwig_db(
   new_project = NULL,
-  cache_location = "~/.cache/chevreul/",
+  cache_location = rappdirs::user_cache_dir(appname = "chevreul"),
   sqlite_db = "bw-files.db"
 )
 }

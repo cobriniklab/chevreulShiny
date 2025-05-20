@@ -9,7 +9,8 @@ minimalChevreulApp(
   appTitle = NULL,
   organism_type = "human",
   futureMb = 13000,
-  db_name = "single-cell-projects.db"
+  db_name = "single-cell-projects.db",
+  bigwig_db = bw_files
 )
 }
 \arguments{

@@ -1528,7 +1528,7 @@ plotCoverage_UI <- function(id) {
 #' @noRd
 plotCoverage <- function(id, object, plot_types, proj_dir,
                          organism_type = "human",
-                         bigwig_db = "~/.cache/chevreul/bw-files.db") {
+                         bigwig_db = file.path(user_cache_dir(appname="chevreul"), "bw-files.db")) {
     moduleServer(id, function(input, output, session) {
         ns <- session$ns
 

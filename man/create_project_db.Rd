@@ -5,13 +5,13 @@
 \title{Create a database of chevreul projects}
 \usage{
 create_project_db(
-  cache_location = "~/.cache/chevreul",
+  cache_location = rappdirs::user_cache_dir(appname = "chevreul"),
   sqlite_db = "single-cell-projects.db",
   verbose = TRUE
 )
 }
 \arguments{
-\item{cache_location}{Path to cache "~/.cache/chevreul"}
+\item{cache_location}{Path to cache default uses rappdirs::user_cache_dir}
 
 \item{sqlite_db}{Database to be created}
 
