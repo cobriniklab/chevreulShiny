@@ -8,7 +8,7 @@ datasets processed as a SingleCellExperiment
 
 A demo using a human gene transcript dataset from Shayler et al. (link)
 is available
-<a href="https://docker.saban.chla.usc.edu/cobrinik/app/seuratApp/" target="_blank" rel="noopener noreferrer">here</a>
+<a href="https://cobrinik-1.saban-chla.usc.edu/shiny/chevreul_demo/" target="_blank" rel="noopener noreferrer">here</a>
 
 There are also convenient functions for:
 
@@ -43,7 +43,7 @@ create_project_db()
 You can also customize the location of the app using these steps:
 
 ``` r
-devtools::install_github("cobriniklab/chevreul")
+devtools::install_github("cobriniklab/chevreulShiny")
 library(chevreulShiny)
 create_project_db(destdir = "/your/path/to/app")
 ```
