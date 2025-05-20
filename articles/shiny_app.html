@@ -72,7 +72,7 @@ Bhat</h4>
 California<br><a class="author_email" href="mailto:#"></a><a href="mailto:bbhat@usc.edu" class="email">bbhat@usc.edu</a>
       </address>
                   
-            <h4 data-toc-skip class="date">1 April 2025</h4>
+            <h4 data-toc-skip class="date">20 May 2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/cobriniklab/chevreulShiny/blob/master/vignettes/shiny_app.Rmd" class="external-link"><code>vignettes/shiny_app.Rmd</code></a></small>
       <div class="d-none name"><code>shiny_app.Rmd</code></div>
@@ -107,7 +107,7 @@ community detection clustering by Louvain or Leiden algorithms as
 implemented in SingleCellExperiment. In addition, gene and transcript
 feature expression can be overlaid on embedding plots both at the gene
 and transcript level.</p>
-<p><img src="images%2Flouvain_and_feature_umap_plot.png"></p>
+<p><img src="images/louvain_and_feature_umap_plot.png"></p>
 </div>
 <div class="section level4">
 <h4 id="readumi-count-histograms">read/UMI count histograms<a class="anchor" aria-label="anchor" href="#readumi-count-histograms"></a>
@@ -115,7 +115,7 @@ and transcript level.</p>
 <p>To facilitate quality control, cell-level summarized UMI and read
 count values can also be overlaid with cell metadata and clustering
 results.</p>
-<p><img src="images%2Fpair_of_histograms.png"></p>
+<p><img src="images/pair_of_histograms.png"></p>
 </div>
 <div class="section level4">
 <h4 id="clustering-trees">Clustering trees<a class="anchor" aria-label="anchor" href="#clustering-trees"></a>
@@ -125,7 +125,7 @@ This plot can be used to help establish an optimal clustering
 resolution.</p>
 <p>In order to use this function <code><a href="https://github.com/lazappi/clustree" class="external-link">library(clustree)</a></code> must be
 loaded.</p>
-<p><img src="images%2Fclustree.png"></p>
+<p><img src="images/clustree.png"></p>
 </div>
 </div>
 <div class="section level3">
@@ -143,7 +143,7 @@ parameter to produce a complex heat map.</p>
 <p>By default, 50 most highly variable genes are displayed. However, an
 arbitrary lists of genes can be plotted for comparison. The
 genes/transcripts are displayed in the order they are listed.</p>
-<p><img src="images%2FHeatmap2.0.png"></p>
+<p><img src="images/Heatmap2.0.png"></p>
 </div>
 <div class="section level4">
 <h4 id="violin-plots">
@@ -158,7 +158,7 @@ different groups of cell. The horizontal line is a marker for the median
 of the data and the box shows the interquartile ranges.</p>
 <p>The parameters that could to be chosen here are: 1. ‘Grouping
 variable’ 2. ‘Data Type (Transformed/Raw)’</p>
-<p><img src="images%2FviolinPlot.png"></p>
+<p><img src="images/violinPlot.png"></p>
 </div>
 </div>
 <div class="section level3">
@@ -184,12 +184,12 @@ correction using all features in the dataset.</p>
 <p>The results of differential expression analyses can be visualized
 using a volcano plot. This plot helps in visual identification of genes
 with large fold changes that are also statistically significant.</p>
-<p><img src="images%2FvolcanoPlot.png"> ### Find Markers</p>
+<p><img src="images/volcanoPlot.png"> ### Find Markers</p>
 <p>Marker features based on louvain/leiden cluster identities or cell
 metadata can be defined based on results of wilcoxon rank-sum test.
 Variable numbers of marker genes per cell group can be specified based
 on adjusted p value and thresholded log fold change.</p>
-<p><img src="images%2Fmarker_gene_plot.png"></p>
+<p><img src="images/marker_gene_plot.png"></p>
 </div>
 </div>
 <div class="section level3">
@@ -219,11 +219,11 @@ by ensembl transcript ids) making up a given gene.</p>
 <li>dimensional reduction method: PCA, UMAP or tSNE</li>
 <li>The name of the gene of interest</li>
 </ol>
-<p><img src="images%2Funnamed-chunk-9-1.png"></p>
+<p><img src="images/unnamed-chunk-9-1.png"></p>
 <p>Direct comparison of the contribution of individual transcripts can
 be achieved using stacked bar plots to answer the question: What
 contribution does each transcript make for each gene expression?</p>
-<p><img src="images%2Ftranscript_composisiont.png"></p>
+<p><img src="images/transcript_composisiont.png"></p>
 </div>
 <div class="section level3">
 <h3 id="regress-features">Regress Features<a class="anchor" aria-label="anchor" href="#regress-features"></a>
@@ -267,7 +267,7 @@ functionality.</p>
 batches can be <a href="https://www.cell.com/cell/fulltext/S0092-8674(19)30559-8" class="external-link">integrated</a>
 and compared to validate sample processing steps and exclude technical
 variation in favor of relevant biological variation.</p>
-<p><img src="images%2Fintegration_result.png" style="width:80.0%;height:80.0%"></p>
+<p><img src="images/integration_result.png" style="width:80.0%;height:80.0%"></p>
 <p>This section includes a list of projects that can be selected,
 integrated, and saved for future analysis.</p>
 </div>
@@ -282,13 +282,13 @@ groups of cells within a genomic region.</p>
 gene of interest 2. ‘Color by variable’- Select a variable by which to
 group the cells by 3. ‘Groups to display’- Select the groups to be
 displayed</p>
-<p><img src="images%2FPlotCoverage2.0.png" style="width:80.0%;height:80.0%"></p>
+<p><img src="images/PlotCoverage2.0.png" style="width:80.0%;height:80.0%"></p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="session-information">Session information<a class="anchor" aria-label="anchor" href="#session-information"></a>
 </h2>
-<pre><code><span><span class="co">#&gt; R version 4.4.3 (2025-02-28)</span></span>
+<pre><code><span><span class="co">#&gt; R version 4.5.0 (2025-04-11)</span></span>
 <span><span class="co">#&gt; Platform: x86_64-pc-linux-gnu</span></span>
 <span><span class="co">#&gt; Running under: Ubuntu 24.04.2 LTS</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -308,15 +308,15 @@ displayed</p>
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt; [1] sessioninfo_1.2.3 BiocStyle_2.34.0 </span></span>
+<span><span class="co">#&gt; [1] sessioninfo_1.2.3 BiocStyle_2.36.0 </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span><span class="co">#&gt;  [1] digest_0.6.37       desc_1.4.3          R6_2.6.1            bookdown_0.42       fastmap_1.2.0      </span></span>
-<span><span class="co">#&gt;  [6] xfun_0.51           cachem_1.1.0        knitr_1.50          htmltools_0.5.8.1   rmarkdown_2.29     </span></span>
-<span><span class="co">#&gt; [11] lifecycle_1.0.4     cli_3.6.4           sass_0.4.9          pkgdown_2.1.1       textshaping_1.0.0  </span></span>
-<span><span class="co">#&gt; [16] jquerylib_0.1.4     systemfonts_1.2.1   compiler_4.4.3      tools_4.4.3         ragg_1.3.3         </span></span>
+<span><span class="co">#&gt;  [1] digest_0.6.37       desc_1.4.3          R6_2.6.1            bookdown_0.43       fastmap_1.2.0      </span></span>
+<span><span class="co">#&gt;  [6] xfun_0.52           cachem_1.1.0        knitr_1.50          htmltools_0.5.8.1   rmarkdown_2.29     </span></span>
+<span><span class="co">#&gt; [11] lifecycle_1.0.4     cli_3.6.5           sass_0.4.10         pkgdown_2.1.2       textshaping_1.0.1  </span></span>
+<span><span class="co">#&gt; [16] jquerylib_0.1.4     systemfonts_1.2.3   compiler_4.5.0      tools_4.5.0         ragg_1.4.0         </span></span>
 <span><span class="co">#&gt; [21] evaluate_1.0.3      bslib_0.9.0         yaml_2.3.10         BiocManager_1.30.25 jsonlite_2.0.0     </span></span>
-<span><span class="co">#&gt; [26] rlang_1.1.5         fs_1.6.5            htmlwidgets_1.6.4</span></span></code></pre>
+<span><span class="co">#&gt; [26] rlang_1.1.6         fs_1.6.6            htmlwidgets_1.6.4</span></span></code></pre>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -329,7 +329,7 @@ displayed</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer>
