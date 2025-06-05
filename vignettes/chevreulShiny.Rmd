@@ -78,11 +78,10 @@ resource for getting help: remember to use the `chevreulShiny` tag and check
 
 # Quick start to using `chevreulShiny`
 
-The `chevreulShiny` package contains functions to preprocess, cluster, visualize, and 
-perform other analyses on scRNA-seq data. It also contains a shiny app for easy 
+The `chevreulShiny` package contains a shiny app for easy 
 visualization and analysis of scRNA data.
 
-`chvereul` uses SingelCellExperiment (SCE) object type 
+`chevreulShiny` uses SingleCellExperiment (SCE) object type 
 (from `r Biocpkg("SingleCellExperiment")`) 
 to store expression and other metadata from single-cell experiments. 
 
@@ -114,11 +113,62 @@ minimalChevreulApp(small_example_dataset)
 ```
 
 Note: the SCE object must be pre-processed and integrated (if required) 
-prior to building the shiny app.
+prior to running the shiny app.
 
-The app is arranged into different sections each of which performs 
-different function. More information about individual sections of the 
-app is provided within the "shiny app" vignette. 
+This package includes a set of Shiny apps for interactive exploration of single cell RNA sequencing (scRNA-seq) datasets processed as
+<a href="https://bioconductor.org/packages/devel/bioc/vignettes/SingleCellExperiment/inst/doc/intro.html" target="_blank" rel="noopener noreferrer">SingleCellExperiments</a>
+
+A demo with a developing human retina scRNA-seq dataset from Shayler et al. is available <a href="https://cobrinik-1.saban-chla.usc.edu/shinyproxy/app/chevreul" target="_blank" rel="noopener noreferrer">here</a>
+
+chevreulShiny includes tools for:
+
+-   Interactive data analysis and visualization 
+
+## Installation instructions
+
+chevreulShiny depends on a minimum R version 4.4. The current  
+chevreulShiny loads two [Bioconductor](http://bioconductor.org/) dependencies  
+
+1. [`chevreulProcess`](https://github.com/cobriniklab/chevreulProcess)
+2. [`chevreulPlot`](https://github.com/cobriniklab/chevreulPlot)
+
+These enable standardized processing, plotting of SingleCellExperiments, respectively.
+
+### Troubleshooting installation
+
+#### Dependency management
+
+When installing an R package like chevreulShiny with many dependencies, conflicts with existing installations can arise. This is a common issue in R package management. Here are some strategies to address this problem:
+
+1. Consider <a href="https://rstudio.github.io/renv/articles/renv.html" target="_blank" rel="noopener noreferrer">renv</a> for dependency management. This tool creates isolated environments for each project, ensuring that package versions don't conflict across different projects.
+
+2. Use the conflicted Package
+The <a href="https://conflicted.r-lib.org" target="_blank" rel="noopener noreferrer">conflicted</a> package provides an alternative conflict resolution strategy. It makes every conflict an error, forcing you to choose which function to use
+
+#### Slow internet connection
+
+When installing R packages on slow internet connections, several issues can arise, particularly with larger packages or when using functions like remotes::install_github(). Here are some strategies to address bandwidth-related problems:
+
+Set a longer timeout for downloads:
+`options(timeout = 9999999)`
+
+Specify the download method:
+`options(download.file.method = "libcurl")`
+
+## Hardware requirements 
+
+Recommended minimum hardware requirements for running chevreulShiny are as follows:
+    
+- RAM: A minimum of 16 GB RAM is recommended for initial analysis. However, for larger datasets or more complex analyses, 64 GB or more is advisable.
+- CPU: Having multiple cores can be beneficial for parallel processing. 
+- Storage: Sufficient storage space is necessary, especially for temporary files. The exact amount depends on the size of your datasets
+- R Version: Chevruel requires R version 4.4 or greater
+
+It's important to note that these requirements can vary based on the size and complexity of your dataset. As the number of cells increases, so do the hardware requirements. For instance: A dataset with around 8,000 cells can be analyzed with 8 GB of RAM. For larger datasets or more complex analyses, 64-128 GB of RAM can be beneficial.
+
+## Learn More
+
+To learn more about the usage of Bioconductor tools for single-cell RNA-seq analysis. Consult the book <a href="https://bioconductor.org/books/release/OSCA/" target="_blank" rel="noopener noreferrer">Orchestrating Single-Cell Analysis with Bioconductor</a>. The book walks through common workflows for the analysis of single-cell RNA-seq data (scRNA-seq). This book will show you how to make use of cutting-edge Bioconductor tools to process, analyze, visualize, and explore scRNA-seq data
 
 `R` session information.
 
